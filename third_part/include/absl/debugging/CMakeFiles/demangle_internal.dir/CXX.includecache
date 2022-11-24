@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../absl/base/config.h
+limits.h
+-
+cstddef
+-
+Availability.h
+-
+TargetConditionals.h
+-
+absl/base/options.h
+../absl/base/absl/base/options.h
+absl/base/policy_checks.h
+../absl/base/absl/base/policy_checks.h
+android/ndk-version.h
+-
+
+../absl/base/options.h
+
+../absl/base/policy_checks.h
+limits.h
+-
+cstddef
+-
+
+../absl/debugging/internal/demangle.h
+absl/base/config.h
+../absl/debugging/internal/absl/base/config.h
+
+/home/sugar/project/abseil-cpp/absl/debugging/internal/demangle.cc
+absl/debugging/internal/demangle.h
+/home/sugar/project/abseil-cpp/absl/debugging/internal/absl/debugging/internal/demangle.h
+cstdint
+-
+cstdio
+-
+limits
+-
+

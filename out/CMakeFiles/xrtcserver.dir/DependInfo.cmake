@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sugar/project/cpp/xrtcserver/src/base/conf.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o"
+  "/home/sugar/project/cpp/xrtcserver/src/base/log.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/log.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/main.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
@@ -13,6 +14,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   ".././src"
   ".././third_part/include"
+  "../../rtcbase/src"
   )
 
 # Targets to which this target links.

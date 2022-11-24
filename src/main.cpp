@@ -4,13 +4,16 @@
  * @Describe:
  */
 #include "base/conf.h"
+#include "base/log.h"
+#include "rtc_base/logging.h"
 
 #include <cstdio>
 #include <iostream>
 #include <ostream>
-#include <vector>
+#include <string>
 
 xrtc::GeneralConf* g_conf = nullptr;
+xrtc::XrtcLog* g_log = nullptr;
 
 int init_general_conf(const char* filename) {
     if (!filename) {
@@ -29,10 +32,33 @@ int init_general_conf(const char* filename) {
     return 0;
 }
 
-int main() { 
+int init_log(const std::string& log_dir,
+             const std::string& log_name,
+             std::string& log_level) {
+    g_log = new xrtc::XrtcLog(log_dir, log_name, log_level);
+
+    int ret = g_log->init();
+    if (ret != 0) {
+        fprintf(stderr, "init log failed\n");
+        return -1;
+    }
+    return 0;
+}
+
+int main() {
     int ret = init_general_conf("./conf/general.yaml");
     if (ret != 0) {
         return -1;
     }
-    
-    return 0; }
+
+    ret = init_log(g_conf->log_dir, g_conf->log_name, g_conf->log_level);
+    if (ret != 0) {
+        return -1;
+    }
+
+    g_log->setLogToStderr(g_conf->log_to_stderr);
+
+    RTC_LOG(LS_VERBOSE) << "hello, world!";
+
+    return 0;
+}
