@@ -1,0 +1,3 @@
+/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/rebuild_cache.dir
+/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/edit_cache.dir
+/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir
