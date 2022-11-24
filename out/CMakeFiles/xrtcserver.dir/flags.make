@@ -6,5 +6,5 @@ CXX_FLAGS =   -g -pipe -W -Wall -fPIC -std=gnu++14 -DWEBRTC_POSIX -DWEBRTC_LINUX
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/sugar/project/cpp/xrtcserver/./src -I/home/sugar/project/cpp/xrtcserver/./third_part/include 
 

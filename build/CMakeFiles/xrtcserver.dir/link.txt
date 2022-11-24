@@ -1,0 +1,1 @@
+/usr/bin/g++  -g   CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o CMakeFiles/xrtcserver.dir/src/main.cpp.o  -o xrtcserver   -L/home/sugar/project/cpp/xrtcserver/./third_part/lib  -Wl,-rpath,/home/sugar/project/cpp/xrtcserver/./third_part/lib -Wl,-Bstatic -lyaml-cpp -Wl,-Bdynamic 

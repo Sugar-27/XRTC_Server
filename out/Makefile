@@ -123,6 +123,33 @@ xrtcserver/fast:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/build
 .PHONY : xrtcserver/fast
 
+src/base/conf.o: src/base/conf.cpp.o
+
+.PHONY : src/base/conf.o
+
+# target to build an object file
+src/base/conf.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o
+.PHONY : src/base/conf.cpp.o
+
+src/base/conf.i: src/base/conf.cpp.i
+
+.PHONY : src/base/conf.i
+
+# target to preprocess a source file
+src/base/conf.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/base/conf.cpp.i
+.PHONY : src/base/conf.cpp.i
+
+src/base/conf.s: src/base/conf.cpp.s
+
+.PHONY : src/base/conf.s
+
+# target to generate assembly for a file
+src/base/conf.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/base/conf.cpp.s
+.PHONY : src/base/conf.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... xrtcserver"
+	@echo "... src/base/conf.o"
+	@echo "... src/base/conf.i"
+	@echo "... src/base/conf.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
