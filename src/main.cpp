@@ -42,6 +42,8 @@ int init_log(const std::string& log_dir,
         fprintf(stderr, "init log failed\n");
         return -1;
     }
+    g_log->start();
+
     return 0;
 }
 
@@ -59,6 +61,9 @@ int main() {
     g_log->setLogToStderr(g_conf->log_to_stderr);
 
     RTC_LOG(LS_VERBOSE) << "hello, world!";
+    RTC_LOG(LS_WARNING) << "xxxx";
+
+    g_log->join();
 
     return 0;
 }

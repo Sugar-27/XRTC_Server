@@ -48,7 +48,26 @@ CMakeFiles/xrtcserver.dir/src/base/log.cpp.o
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
  ../src/base/log.h
+ ../third_part/include/absl/base/attributes.h
+ ../third_part/include/absl/base/config.h
+ ../third_part/include/absl/base/internal/identity.h
+ ../third_part/include/absl/base/internal/inline_variable.h
+ ../third_part/include/absl/base/internal/invoke.h
+ ../third_part/include/absl/base/internal/throw_delegate.h
+ ../third_part/include/absl/base/macros.h
+ ../third_part/include/absl/base/optimization.h
+ ../third_part/include/absl/base/options.h
+ ../third_part/include/absl/base/policy_checks.h
+ ../third_part/include/absl/base/port.h
+ ../third_part/include/absl/memory/memory.h
+ ../third_part/include/absl/meta/type_traits.h
+ ../third_part/include/absl/strings/string_view.h
+ ../third_part/include/absl/types/bad_optional_access.h
+ ../third_part/include/absl/types/internal/optional.h
+ ../third_part/include/absl/types/optional.h
+ ../third_part/include/absl/utility/utility.h
  /home/sugar/project/cpp/xrtcserver/src/base/log.cpp
+ /home/sugar/project/cpp/xrtcserver/src/base/log.h
 CMakeFiles/xrtcserver.dir/src/main.cpp.o
  ../../rtcbase/src/api/array_view.h
  ../../rtcbase/src/rtc_base/checks.h
@@ -61,6 +80,24 @@ CMakeFiles/xrtcserver.dir/src/main.cpp.o
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
+ ../third_part/include/absl/base/attributes.h
+ ../third_part/include/absl/base/config.h
+ ../third_part/include/absl/base/internal/identity.h
+ ../third_part/include/absl/base/internal/inline_variable.h
+ ../third_part/include/absl/base/internal/invoke.h
+ ../third_part/include/absl/base/internal/throw_delegate.h
+ ../third_part/include/absl/base/macros.h
+ ../third_part/include/absl/base/optimization.h
+ ../third_part/include/absl/base/options.h
+ ../third_part/include/absl/base/policy_checks.h
+ ../third_part/include/absl/base/port.h
+ ../third_part/include/absl/memory/memory.h
+ ../third_part/include/absl/meta/type_traits.h
+ ../third_part/include/absl/strings/string_view.h
+ ../third_part/include/absl/types/bad_optional_access.h
+ ../third_part/include/absl/types/internal/optional.h
+ ../third_part/include/absl/types/optional.h
+ ../third_part/include/absl/utility/utility.h
  /home/sugar/project/cpp/xrtcserver/src/base/conf.h
  /home/sugar/project/cpp/xrtcserver/src/base/log.h
  /home/sugar/project/cpp/xrtcserver/src/main.cpp

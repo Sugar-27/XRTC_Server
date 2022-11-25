@@ -1,5 +1,5 @@
 log:
-  log_dir: .log
+  log_dir: log
   log_name: xrtcserver
   # verbose debug info warning error
   log_level: verbose
