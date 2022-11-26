@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sugar/project/cpp/xrtcserver/src/base/conf.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/base/log.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/log.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/main.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/main.cpp.o"
+  "/home/sugar/project/cpp/xrtcserver/src/server/signaling_server.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

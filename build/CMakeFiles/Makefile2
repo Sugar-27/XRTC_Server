@@ -47,7 +47,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/sugar/project/cpp/xrtcserver
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sugar/project/cpp/xrtcserver/out
+CMAKE_BINARY_DIR = /home/sugar/project/cpp/xrtcserver/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +74,14 @@ clean: CMakeFiles/xrtcserver.dir/clean
 CMakeFiles/xrtcserver.dir/all:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/depend
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=1,2,3,4,5 "Built target xrtcserver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sugar/project/cpp/xrtcserver/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target xrtcserver"
 .PHONY : CMakeFiles/xrtcserver.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/xrtcserver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sugar/project/cpp/xrtcserver/out/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sugar/project/cpp/xrtcserver/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/xrtcserver.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sugar/project/cpp/xrtcserver/out/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sugar/project/cpp/xrtcserver/build/CMakeFiles 0
 .PHONY : CMakeFiles/xrtcserver.dir/rule
 
 # Convenience name for target.

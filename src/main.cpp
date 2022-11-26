@@ -6,6 +6,7 @@
 #include "base/conf.h"
 #include "base/log.h"
 #include "rtc_base/logging.h"
+#include "server/signaling_server.h"
 
 #include <cstdio>
 #include <iostream>
@@ -14,6 +15,7 @@
 
 xrtc::GeneralConf* g_conf = nullptr;
 xrtc::XrtcLog* g_log = nullptr;
+xrtc::SignalingServer* g_signaling_server = nullptr;
 
 int init_general_conf(const char* filename) {
     if (!filename) {
@@ -47,6 +49,15 @@ int init_log(const std::string& log_dir,
     return 0;
 }
 
+int init_signaling_server(const char* conf_file) {
+    g_signaling_server = new xrtc::SignalingServer();
+    int ret = g_signaling_server->init(conf_file);
+    if (ret != 0) {
+        return -1;
+    }
+    return 0;
+}
+
 int main() {
     int ret = init_general_conf("./conf/general.yaml");
     if (ret != 0) {
@@ -60,8 +71,8 @@ int main() {
 
     g_log->setLogToStderr(g_conf->log_to_stderr);
 
-    RTC_LOG(LS_VERBOSE) << "hello, world!";
-    RTC_LOG(LS_WARNING) << "xxxx";
+    // 初始化信令服务服务器
+    ret = init_signaling_server("./conf/signaling_server.yaml");
 
     g_log->join();
 

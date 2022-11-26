@@ -18,6 +18,7 @@ link_directories(
 file(GLOB all_src
     "./src/*.cpp"
     "./src/base/*.cpp"
+    "./src/server/*cpp"
 )
 
 add_executable(xrtcserver ${all_src})

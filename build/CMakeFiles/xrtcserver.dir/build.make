@@ -46,7 +46,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/sugar/project/cpp/xrtcserver
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sugar/project/cpp/xrtcserver/out
+CMAKE_BINARY_DIR = /home/sugar/project/cpp/xrtcserver/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/xrtcserver.dir/depend.make
@@ -59,55 +59,55 @@ include CMakeFiles/xrtcserver.dir/flags.make
 
 CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o: CMakeFiles/xrtcserver.dir/flags.make
 CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o: ../src/base/conf.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o -c /home/sugar/project/cpp/xrtcserver/src/base/conf.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o -c /home/sugar/project/cpp/xrtcserver/src/base/conf.cpp
 
 CMakeFiles/xrtcserver.dir/src/base/conf.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/xrtcserver.dir/src/base/conf.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sugar/project/cpp/xrtcserver/src/base/conf.cpp > CMakeFiles/xrtcserver.dir/src/base/conf.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sugar/project/cpp/xrtcserver/src/base/conf.cpp > CMakeFiles/xrtcserver.dir/src/base/conf.cpp.i
 
 CMakeFiles/xrtcserver.dir/src/base/conf.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/xrtcserver.dir/src/base/conf.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sugar/project/cpp/xrtcserver/src/base/conf.cpp -o CMakeFiles/xrtcserver.dir/src/base/conf.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sugar/project/cpp/xrtcserver/src/base/conf.cpp -o CMakeFiles/xrtcserver.dir/src/base/conf.cpp.s
 
 CMakeFiles/xrtcserver.dir/src/base/log.cpp.o: CMakeFiles/xrtcserver.dir/flags.make
 CMakeFiles/xrtcserver.dir/src/base/log.cpp.o: ../src/base/log.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/xrtcserver.dir/src/base/log.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/xrtcserver.dir/src/base/log.cpp.o -c /home/sugar/project/cpp/xrtcserver/src/base/log.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/xrtcserver.dir/src/base/log.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/xrtcserver.dir/src/base/log.cpp.o -c /home/sugar/project/cpp/xrtcserver/src/base/log.cpp
 
 CMakeFiles/xrtcserver.dir/src/base/log.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/xrtcserver.dir/src/base/log.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sugar/project/cpp/xrtcserver/src/base/log.cpp > CMakeFiles/xrtcserver.dir/src/base/log.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sugar/project/cpp/xrtcserver/src/base/log.cpp > CMakeFiles/xrtcserver.dir/src/base/log.cpp.i
 
 CMakeFiles/xrtcserver.dir/src/base/log.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/xrtcserver.dir/src/base/log.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sugar/project/cpp/xrtcserver/src/base/log.cpp -o CMakeFiles/xrtcserver.dir/src/base/log.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sugar/project/cpp/xrtcserver/src/base/log.cpp -o CMakeFiles/xrtcserver.dir/src/base/log.cpp.s
 
 CMakeFiles/xrtcserver.dir/src/main.cpp.o: CMakeFiles/xrtcserver.dir/flags.make
 CMakeFiles/xrtcserver.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/xrtcserver.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/xrtcserver.dir/src/main.cpp.o -c /home/sugar/project/cpp/xrtcserver/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/xrtcserver.dir/src/main.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/xrtcserver.dir/src/main.cpp.o -c /home/sugar/project/cpp/xrtcserver/src/main.cpp
 
 CMakeFiles/xrtcserver.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/xrtcserver.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sugar/project/cpp/xrtcserver/src/main.cpp > CMakeFiles/xrtcserver.dir/src/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sugar/project/cpp/xrtcserver/src/main.cpp > CMakeFiles/xrtcserver.dir/src/main.cpp.i
 
 CMakeFiles/xrtcserver.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/xrtcserver.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sugar/project/cpp/xrtcserver/src/main.cpp -o CMakeFiles/xrtcserver.dir/src/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sugar/project/cpp/xrtcserver/src/main.cpp -o CMakeFiles/xrtcserver.dir/src/main.cpp.s
 
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: CMakeFiles/xrtcserver.dir/flags.make
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../src/server/signaling_server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o -c /home/sugar/project/cpp/xrtcserver/src/server/signaling_server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o -c /home/sugar/project/cpp/xrtcserver/src/server/signaling_server.cpp
 
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sugar/project/cpp/xrtcserver/src/server/signaling_server.cpp > CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sugar/project/cpp/xrtcserver/src/server/signaling_server.cpp > CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.i
 
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sugar/project/cpp/xrtcserver/src/server/signaling_server.cpp -o CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sugar/project/cpp/xrtcserver/src/server/signaling_server.cpp -o CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.s
 
 # Object files for target xrtcserver
 xrtcserver_OBJECTS = \
@@ -125,7 +125,7 @@ xrtcserver: CMakeFiles/xrtcserver.dir/src/main.cpp.o
 xrtcserver: CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o
 xrtcserver: CMakeFiles/xrtcserver.dir/build.make
 xrtcserver: CMakeFiles/xrtcserver.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable xrtcserver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sugar/project/cpp/xrtcserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable xrtcserver"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/xrtcserver.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -138,6 +138,6 @@ CMakeFiles/xrtcserver.dir/clean:
 .PHONY : CMakeFiles/xrtcserver.dir/clean
 
 CMakeFiles/xrtcserver.dir/depend:
-	cd /home/sugar/project/cpp/xrtcserver/out && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sugar/project/cpp/xrtcserver /home/sugar/project/cpp/xrtcserver /home/sugar/project/cpp/xrtcserver/out /home/sugar/project/cpp/xrtcserver/out /home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sugar/project/cpp/xrtcserver/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sugar/project/cpp/xrtcserver /home/sugar/project/cpp/xrtcserver /home/sugar/project/cpp/xrtcserver/build /home/sugar/project/cpp/xrtcserver/build /home/sugar/project/cpp/xrtcserver/build/CMakeFiles/xrtcserver.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/xrtcserver.dir/depend
 
