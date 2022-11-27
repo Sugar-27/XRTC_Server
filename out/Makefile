@@ -177,6 +177,33 @@ src/base/log.cpp.s:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/base/log.cpp.s
 .PHONY : src/base/log.cpp.s
 
+src/base/socket.o: src/base/socket.cpp.o
+
+.PHONY : src/base/socket.o
+
+# target to build an object file
+src/base/socket.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o
+.PHONY : src/base/socket.cpp.o
+
+src/base/socket.i: src/base/socket.cpp.i
+
+.PHONY : src/base/socket.i
+
+# target to preprocess a source file
+src/base/socket.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/base/socket.cpp.i
+.PHONY : src/base/socket.cpp.i
+
+src/base/socket.s: src/base/socket.cpp.s
+
+.PHONY : src/base/socket.s
+
+# target to generate assembly for a file
+src/base/socket.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/base/socket.cpp.s
+.PHONY : src/base/socket.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -246,6 +273,9 @@ help:
 	@echo "... src/base/log.o"
 	@echo "... src/base/log.i"
 	@echo "... src/base/log.s"
+	@echo "... src/base/socket.o"
+	@echo "... src/base/socket.i"
+	@echo "... src/base/socket.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

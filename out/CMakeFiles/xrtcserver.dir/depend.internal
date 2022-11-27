@@ -68,6 +68,39 @@ CMakeFiles/xrtcserver.dir/src/base/log.cpp.o
  ../third_part/include/absl/utility/utility.h
  /home/sugar/project/cpp/xrtcserver/src/base/log.cpp
  /home/sugar/project/cpp/xrtcserver/src/base/log.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o
+ ../../rtcbase/src/api/array_view.h
+ ../../rtcbase/src/rtc_base/checks.h
+ ../../rtcbase/src/rtc_base/constructor_magic.h
+ ../../rtcbase/src/rtc_base/logging.h
+ ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+ ../../rtcbase/src/rtc_base/string_encode.h
+ ../../rtcbase/src/rtc_base/string_to_number.h
+ ../../rtcbase/src/rtc_base/strings/string_builder.h
+ ../../rtcbase/src/rtc_base/system/inline.h
+ ../../rtcbase/src/rtc_base/system/rtc_export.h
+ ../../rtcbase/src/rtc_base/type_traits.h
+ ../src/base/socket.h
+ ../src/server/signaling_server.h
+ ../third_part/include/absl/base/attributes.h
+ ../third_part/include/absl/base/config.h
+ ../third_part/include/absl/base/internal/identity.h
+ ../third_part/include/absl/base/internal/inline_variable.h
+ ../third_part/include/absl/base/internal/invoke.h
+ ../third_part/include/absl/base/internal/throw_delegate.h
+ ../third_part/include/absl/base/macros.h
+ ../third_part/include/absl/base/optimization.h
+ ../third_part/include/absl/base/options.h
+ ../third_part/include/absl/base/policy_checks.h
+ ../third_part/include/absl/base/port.h
+ ../third_part/include/absl/memory/memory.h
+ ../third_part/include/absl/meta/type_traits.h
+ ../third_part/include/absl/strings/string_view.h
+ ../third_part/include/absl/types/bad_optional_access.h
+ ../third_part/include/absl/types/internal/optional.h
+ ../third_part/include/absl/types/optional.h
+ ../third_part/include/absl/utility/utility.h
+ /home/sugar/project/cpp/xrtcserver/src/base/socket.cpp
 CMakeFiles/xrtcserver.dir/src/main.cpp.o
  ../../rtcbase/src/api/array_view.h
  ../../rtcbase/src/rtc_base/checks.h
@@ -114,6 +147,7 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
+ ../src/base/socket.h
  ../src/server/signaling_server.h
  ../third_part/include/absl/base/attributes.h
  ../third_part/include/absl/base/config.h

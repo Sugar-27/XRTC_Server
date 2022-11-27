@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o"
   "CMakeFiles/xrtcserver.dir/src/base/log.cpp.o"
+  "CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o"
   "CMakeFiles/xrtcserver.dir/src/main.cpp.o"
   "CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o"
   "xrtcserver"

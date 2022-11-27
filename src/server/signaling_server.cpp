@@ -6,6 +6,7 @@
 
 #include "server/signaling_server.h"
 
+#include "base/socket.h"
 #include "rtc_base/logging.h"
 #include "yaml-cpp/yaml.h"
 
@@ -36,6 +37,9 @@ int SignalingServer::init(const char* conf_file) {
             << "catch a YAML exception, line:" << e.mark.line + 1
             << ", column: " << e.mark.column + 1 << ", error" << e.msg;
     }
+
+    // 创建TCP_Server
+    _listen_fd = create_tcp_server(_options.host.c_str(), _options.port);
 
     return 0;
 }

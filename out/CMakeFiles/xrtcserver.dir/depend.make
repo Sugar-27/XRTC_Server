@@ -68,6 +68,39 @@ CMakeFiles/xrtcserver.dir/src/base/log.cpp.o: ../third_part/include/absl/utility
 CMakeFiles/xrtcserver.dir/src/base/log.cpp.o: ../src/base/log.cpp
 CMakeFiles/xrtcserver.dir/src/base/log.cpp.o: ../src/base/log.h
 
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../../rtcbase/src/api/array_view.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../../rtcbase/src/rtc_base/checks.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../../rtcbase/src/rtc_base/constructor_magic.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../../rtcbase/src/rtc_base/logging.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../../rtcbase/src/rtc_base/string_encode.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../../rtcbase/src/rtc_base/string_to_number.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../../rtcbase/src/rtc_base/strings/string_builder.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../../rtcbase/src/rtc_base/system/inline.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../../rtcbase/src/rtc_base/system/rtc_export.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../../rtcbase/src/rtc_base/type_traits.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../src/base/socket.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../src/server/signaling_server.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/base/attributes.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/base/config.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/base/internal/identity.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/base/internal/inline_variable.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/base/internal/invoke.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/base/internal/throw_delegate.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/base/macros.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/base/optimization.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/base/options.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/base/policy_checks.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/base/port.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/memory/memory.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/meta/type_traits.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/strings/string_view.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/types/bad_optional_access.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/types/internal/optional.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/types/optional.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/utility/utility.h
+CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../src/base/socket.cpp
+
 CMakeFiles/xrtcserver.dir/src/main.cpp.o: ../../rtcbase/src/api/array_view.h
 CMakeFiles/xrtcserver.dir/src/main.cpp.o: ../../rtcbase/src/rtc_base/checks.h
 CMakeFiles/xrtcserver.dir/src/main.cpp.o: ../../rtcbase/src/rtc_base/constructor_magic.h
@@ -113,6 +146,7 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/r
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/rtc_base/system/inline.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/rtc_base/system/rtc_export.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/rtc_base/type_traits.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../src/base/socket.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../src/server/signaling_server.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/absl/base/attributes.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/absl/base/config.h
