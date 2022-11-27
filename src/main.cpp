@@ -8,6 +8,7 @@
 #include "rtc_base/logging.h"
 #include "server/signaling_server.h"
 
+#include <csignal>
 #include <cstdio>
 #include <iostream>
 #include <ostream>
@@ -56,6 +57,15 @@ int init_signaling_server(const char* conf_file) {
     return 0;
 }
 
+static void process_signal(int sig) {
+    RTC_LOG(LS_INFO) << "receive signal: " << sig;
+    if (sig == SIGINT || sig == SIGTERM) {
+        if (g_signaling_server) {
+            g_signaling_server->stop();
+        }
+    }
+}
+
 int main() {
     int ret = init_general_conf("./conf/general.yaml");
     if (ret != 0) {
@@ -71,8 +81,18 @@ int main() {
 
     // 初始化信令服务服务器
     ret = init_signaling_server("./conf/signaling_server.yaml");
+    if (ret != 0) {
+        RTC_LOG(LS_WARNING) << "init signaling server failed";
+        return -1;
+    }
 
-    g_log->join();
+    signal(SIGINT, process_signal);
+    signal(SIGTERM, process_signal);
+
+    g_signaling_server->start();
+    g_signaling_server->join();
+
+    // g_log->join();
 
     return 0;
 }

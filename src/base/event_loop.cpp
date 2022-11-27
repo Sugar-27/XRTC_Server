@@ -60,7 +60,7 @@ static void generic_time_cb(struct ev_loop* /*loop*/, struct ev_timer* timer, in
     watcher->cb(watcher->el, watcher, watcher->data);
 }
 
-IOWatcher* EventLoop::create_to_event(io_cb_t cb, void* data) {
+IOWatcher* EventLoop::create_io_event(io_cb_t cb, void* data) {
     IOWatcher* w = new IOWatcher(this, cb, data);
     ev_init(&(w->io), generic_io_cb);
     return w;

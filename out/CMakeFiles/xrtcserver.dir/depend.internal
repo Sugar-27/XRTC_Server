@@ -84,6 +84,7 @@ CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
+ ../src/base/event_loop.h
  ../src/base/socket.h
  ../src/server/signaling_server.h
  ../third_part/include/absl/base/attributes.h
@@ -117,6 +118,7 @@ CMakeFiles/xrtcserver.dir/src/main.cpp.o
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
+ ../src/base/event_loop.h
  ../third_part/include/absl/base/attributes.h
  ../third_part/include/absl/base/config.h
  ../third_part/include/absl/base/internal/identity.h
@@ -151,6 +153,7 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
+ ../src/base/event_loop.h
  ../src/base/socket.h
  ../src/server/signaling_server.h
  ../third_part/include/absl/base/attributes.h
