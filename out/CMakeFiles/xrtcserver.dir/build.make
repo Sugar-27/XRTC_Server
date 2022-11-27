@@ -70,9 +70,22 @@ CMakeFiles/xrtcserver.dir/src/base/conf.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/xrtcserver.dir/src/base/conf.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sugar/project/cpp/xrtcserver/src/base/conf.cpp -o CMakeFiles/xrtcserver.dir/src/base/conf.cpp.s
 
+CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.o: CMakeFiles/xrtcserver.dir/flags.make
+CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.o: ../src/base/event_loop.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.o -c /home/sugar/project/cpp/xrtcserver/src/base/event_loop.cpp
+
+CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sugar/project/cpp/xrtcserver/src/base/event_loop.cpp > CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.i
+
+CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sugar/project/cpp/xrtcserver/src/base/event_loop.cpp -o CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.s
+
 CMakeFiles/xrtcserver.dir/src/base/log.cpp.o: CMakeFiles/xrtcserver.dir/flags.make
 CMakeFiles/xrtcserver.dir/src/base/log.cpp.o: ../src/base/log.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/xrtcserver.dir/src/base/log.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/xrtcserver.dir/src/base/log.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/xrtcserver.dir/src/base/log.cpp.o -c /home/sugar/project/cpp/xrtcserver/src/base/log.cpp
 
 CMakeFiles/xrtcserver.dir/src/base/log.cpp.i: cmake_force
@@ -85,7 +98,7 @@ CMakeFiles/xrtcserver.dir/src/base/log.cpp.s: cmake_force
 
 CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: CMakeFiles/xrtcserver.dir/flags.make
 CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../src/base/socket.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o -c /home/sugar/project/cpp/xrtcserver/src/base/socket.cpp
 
 CMakeFiles/xrtcserver.dir/src/base/socket.cpp.i: cmake_force
@@ -98,7 +111,7 @@ CMakeFiles/xrtcserver.dir/src/base/socket.cpp.s: cmake_force
 
 CMakeFiles/xrtcserver.dir/src/main.cpp.o: CMakeFiles/xrtcserver.dir/flags.make
 CMakeFiles/xrtcserver.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/xrtcserver.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/xrtcserver.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/xrtcserver.dir/src/main.cpp.o -c /home/sugar/project/cpp/xrtcserver/src/main.cpp
 
 CMakeFiles/xrtcserver.dir/src/main.cpp.i: cmake_force
@@ -111,7 +124,7 @@ CMakeFiles/xrtcserver.dir/src/main.cpp.s: cmake_force
 
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: CMakeFiles/xrtcserver.dir/flags.make
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../src/server/signaling_server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o -c /home/sugar/project/cpp/xrtcserver/src/server/signaling_server.cpp
 
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.i: cmake_force
@@ -125,6 +138,7 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.s: cmake_force
 # Object files for target xrtcserver
 xrtcserver_OBJECTS = \
 "CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o" \
+"CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.o" \
 "CMakeFiles/xrtcserver.dir/src/base/log.cpp.o" \
 "CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o" \
 "CMakeFiles/xrtcserver.dir/src/main.cpp.o" \
@@ -134,13 +148,14 @@ xrtcserver_OBJECTS = \
 xrtcserver_EXTERNAL_OBJECTS =
 
 xrtcserver: CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o
+xrtcserver: CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.o
 xrtcserver: CMakeFiles/xrtcserver.dir/src/base/log.cpp.o
 xrtcserver: CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o
 xrtcserver: CMakeFiles/xrtcserver.dir/src/main.cpp.o
 xrtcserver: CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o
 xrtcserver: CMakeFiles/xrtcserver.dir/build.make
 xrtcserver: CMakeFiles/xrtcserver.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable xrtcserver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable xrtcserver"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/xrtcserver.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

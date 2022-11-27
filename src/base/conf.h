@@ -1,7 +1,7 @@
 /*
  * @Author: Sugar 45682h@gmail.com
  * @Date: 2022-11-24 11:38:02
- * @Describe: 
+ * @Describe:
  */
 
 #ifndef __BASE_CONF_H
@@ -17,6 +17,6 @@ struct GeneralConf {
 };
 
 int load_general_conf(const char* filename, GeneralConf* conf);
-}
+} // namespace xrtc
 
 #endif

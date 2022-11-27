@@ -34,9 +34,7 @@ int init_general_conf(const char* filename) {
     return 0;
 }
 
-int init_log(const std::string& log_dir,
-             const std::string& log_name,
-             std::string& log_level) {
+int init_log(const std::string& log_dir, const std::string& log_name, std::string& log_level) {
     g_log = new xrtc::XrtcLog(log_dir, log_name, log_level);
 
     int ret = g_log->init();

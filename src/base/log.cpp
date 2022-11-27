@@ -158,8 +158,7 @@ void XrtcLog::join() {
     }
 }
 
-void XrtcLog::OnLogMessage(const std::string& message,
-                           rtc::LoggingSeverity severity) {
+void XrtcLog::OnLogMessage(const std::string& message, rtc::LoggingSeverity severity) {
     // 异步写入到队列中
     if (severity >= rtc::LS_WARNING) {
         std::unique_lock<std::mutex> lock(_mtx_wf);

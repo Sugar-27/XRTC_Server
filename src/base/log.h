@@ -17,9 +17,7 @@
 namespace xrtc {
 class XrtcLog : public rtc::LogSink {
   public:
-    XrtcLog(const std::string& log_dir,
-            const std::string& log_name,
-            const std::string& log_level);
+    XrtcLog(const std::string& log_dir, const std::string& log_name, const std::string& log_level);
 
     ~XrtcLog() override;
 
@@ -27,9 +25,8 @@ class XrtcLog : public rtc::LogSink {
     void setLogToStderr(bool on);
     bool start();
     void stop();
-    void join(); 
-    void OnLogMessage(const std::string& message,
-                      rtc::LoggingSeverity severity) override;
+    void join();
+    void OnLogMessage(const std::string& message, rtc::LoggingSeverity severity) override;
     void OnLogMessage(const std::string& message) override;
 
   private:

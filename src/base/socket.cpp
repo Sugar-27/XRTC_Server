@@ -28,8 +28,8 @@ int create_tcp_server(const char* addr, int port) {
     int on = 1;
     int ret = setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on));
     if (ret == -1) {
-        RTC_LOG(LS_WARNING) << "setsockopt SO_REUSEADDR error, errno: " << errno
-                            << ", error" << strerror(errno);
+        RTC_LOG(LS_WARNING) << "setsockopt SO_REUSEADDR error, errno: " << errno << ", error"
+                            << strerror(errno);
         close(sock);
         return -1;
     }

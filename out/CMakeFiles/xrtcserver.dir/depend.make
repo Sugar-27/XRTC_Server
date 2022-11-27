@@ -35,6 +35,10 @@ CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o: ../third_part/include/yaml-cpp/tr
 CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o: ../third_part/include/yaml-cpp/yaml.h
 CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o: ../src/base/conf.cpp
 
+CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.o: ../src/base/event_loop.h
+CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.o: ../third_part/include/libev/ev.h
+CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.o: ../src/base/event_loop.cpp
+
 CMakeFiles/xrtcserver.dir/src/base/log.cpp.o: ../../rtcbase/src/api/array_view.h
 CMakeFiles/xrtcserver.dir/src/base/log.cpp.o: ../../rtcbase/src/rtc_base/checks.h
 CMakeFiles/xrtcserver.dir/src/base/log.cpp.o: ../../rtcbase/src/rtc_base/constructor_magic.h

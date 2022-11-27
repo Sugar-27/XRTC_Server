@@ -33,9 +33,8 @@ int SignalingServer::init(const char* conf_file) {
         _options.worker_num = config["worker_num"].as<int>();
         _options.connection_timeout = config["connection_timeout"].as<int>();
     } catch (YAML::Exception& e) {
-        RTC_LOG(LS_WARNING)
-            << "catch a YAML exception, line:" << e.mark.line + 1
-            << ", column: " << e.mark.column + 1 << ", error" << e.msg;
+        RTC_LOG(LS_WARNING) << "catch a YAML exception, line:" << e.mark.line + 1
+                            << ", column: " << e.mark.column + 1 << ", error" << e.msg;
     }
 
     // 创建TCP_Server
