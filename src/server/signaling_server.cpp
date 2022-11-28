@@ -33,7 +33,7 @@ void signaling_server_recv_notify(EventLoop* /*el*/, IOWatcher* /*w*/, int fd, i
     server->_process_notify(msg);
 }
 
-void accept_new_conn(EventLoop* el, IOWatcher* w, int fd, int events, void* data) {
+void accept_new_conn(EventLoop* /*el*/, IOWatcher* /*w*/, int fd, int /*events*/, void* data) {
     int cfd;
     char cip[128];
     int cport;
@@ -46,7 +46,6 @@ void accept_new_conn(EventLoop* el, IOWatcher* w, int fd, int events, void* data
 
     SignalingServer* server = (SignalingServer*)data;
     server->_dispatch_new_conn(cfd);
-    
 }
 
 SignalingServer::SignalingServer() : _el(new EventLoop(this)) {}
@@ -199,7 +198,7 @@ void SignalingServer::_dispatch_new_conn(int fd) {
     // 轮询的方式分配
     int index = _next_worker_index;
     _next_worker_index++;
-    if (_next_worker_index >= _workers.size()) {
+    if ((size_t)_next_worker_index >= _workers.size()) {
         _next_worker_index = 0;
     }
 

@@ -312,6 +312,33 @@ src/server/signaling_worker.cpp.s:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.s
 .PHONY : src/server/signaling_worker.cpp.s
 
+src/server/tcp_connection.o: src/server/tcp_connection.cpp.o
+
+.PHONY : src/server/tcp_connection.o
+
+# target to build an object file
+src/server/tcp_connection.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o
+.PHONY : src/server/tcp_connection.cpp.o
+
+src/server/tcp_connection.i: src/server/tcp_connection.cpp.i
+
+.PHONY : src/server/tcp_connection.i
+
+# target to preprocess a source file
+src/server/tcp_connection.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.i
+.PHONY : src/server/tcp_connection.cpp.i
+
+src/server/tcp_connection.s: src/server/tcp_connection.cpp.s
+
+.PHONY : src/server/tcp_connection.s
+
+# target to generate assembly for a file
+src/server/tcp_connection.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.s
+.PHONY : src/server/tcp_connection.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -342,6 +369,9 @@ help:
 	@echo "... src/server/signaling_worker.o"
 	@echo "... src/server/signaling_worker.i"
 	@echo "... src/server/signaling_worker.s"
+	@echo "... src/server/tcp_connection.o"
+	@echo "... src/server/tcp_connection.i"
+	@echo "... src/server/tcp_connection.s"
 .PHONY : help
 
 

@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sugar/project/cpp/xrtcserver/src/main.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/main.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/server/signaling_server.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/server/signaling_worker.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o"
+  "/home/sugar/project/cpp/xrtcserver/src/server/tcp_connection.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
