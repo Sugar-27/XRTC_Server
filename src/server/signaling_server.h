@@ -36,11 +36,13 @@ class SignalingServer {
 
   public:
     friend void signaling_server_recv_notify(EventLoop* el, IOWatcher* w, int fd, int events, void* data);
+    friend void accept_new_conn(EventLoop* el, IOWatcher* w, int fd, int events, void* data);
 
   private:
     void _process_notify(int msg);
     void _stop();
     int _create_worker(int worker_id);
+    void _dispatch_new_conn(int fd);
 
   private:
     SignalingServerOptions _options;
@@ -53,6 +55,7 @@ class SignalingServer {
 
     int _listen_fd = -1;
     std::vector<SignalingWorker*> _workers;
+    int _next_worker_index = 0;
 };
 
 } // namespace xrtc

@@ -22,7 +22,7 @@
 #include <unistd.h>
 
 namespace xrtc {
-void signaling_server_recv_notify(EventLoop* el, IOWatcher* w, int fd, int events, void* data) {
+void signaling_server_recv_notify(EventLoop* /*el*/, IOWatcher* /*w*/, int fd, int /*events*/, void* data) {
     int msg;
     if (read(fd, &msg, sizeof(int)) != sizeof(int)) {
         RTC_LOG(LS_WARNING) << "read from pipe error: " << strerror(errno) << ", errno: " << errno;
@@ -33,7 +33,22 @@ void signaling_server_recv_notify(EventLoop* el, IOWatcher* w, int fd, int event
     server->_process_notify(msg);
 }
 
-void accept_new_conn(EventLoop* el, IOWatcher* w, int fd, int events, void* data) {}
+void accept_new_conn(EventLoop* el, IOWatcher* w, int fd, int events, void* data) {
+    int cfd;
+    char cip[128];
+    int cport;
+
+    cfd = tcp_accept(fd, cip, &cport);
+    RTC_LOG(LS_ERROR) << "Test: cfd- " << cfd;
+    if (cfd == -1) {
+        return;
+    }
+    RTC_LOG(LS_INFO) << "accept new conn, fd: " << fd << ", ip: " << cip << ", port: " << cport;
+
+    SignalingServer* server = (SignalingServer*)data;
+    server->_dispatch_new_conn(cfd);
+    
+}
 
 SignalingServer::SignalingServer() : _el(new EventLoop(this)) {}
 
@@ -124,6 +139,12 @@ int SignalingServer::notify(int msg) {
     return written == sizeof(int) ? 0 : -1;
 }
 
+void SignalingServer::join() {
+    if (_thread && _thread->joinable()) {
+        _thread->join();
+    }
+}
+
 void SignalingServer::_process_notify(int msg) {
     switch (msg) {
     case QUIT:
@@ -175,9 +196,15 @@ int SignalingServer::_create_worker(int worker_id) {
     return 0;
 }
 
-void SignalingServer::join() {
-    if (_thread && _thread->joinable()) {
-        _thread->join();
+void SignalingServer::_dispatch_new_conn(int fd) {
+    // 轮询的方式分配
+    int index = _next_worker_index;
+    _next_worker_index++;
+    if (_next_worker_index >= _workers.size()) {
+        _next_worker_index = 0;
     }
+
+    SignalingWorker* worker = _workers[index];
+    worker->notify_new_conn(fd);
 }
 } // namespace xrtc

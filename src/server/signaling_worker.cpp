@@ -8,6 +8,7 @@
 
 #include "base/event_loop.h"
 #include "rtc_base/logging.h"
+#include "server/signaling_server.h"
 
 #include <cstring>
 #include <thread>
@@ -50,9 +51,9 @@ bool SignalingWorker::start() {
         return false;
     }
     _thread = new std::thread([=]() {
-        RTC_LOG(LS_WARNING) << "signaling worker event loop start, worker_id: " << _worker_id;
+        RTC_LOG(LS_INFO) << "signaling worker event loop start, worker_id: " << _worker_id;
         _el->start();
-        RTC_LOG(LS_WARNING) << "signaling worker event loop start, worker_id: " << _worker_id;
+        RTC_LOG(LS_INFO) << "signaling worker event loop stop, worker_id: " << _worker_id;
     });
     return true;
 }
@@ -70,6 +71,11 @@ void SignalingWorker::join() {
     }
 }
 
+int SignalingWorker::notify_new_conn(int fd) {
+    _q_conn.produce(fd);
+    return notify(SignalingWorker::NEW_CONN);
+}
+
 void SignalingWorker::_stop() {
     if (!_thread) {
         RTC_LOG(LS_WARNING) << "signaling worker not running, worker_id: " << _worker_id;
@@ -83,10 +89,20 @@ void SignalingWorker::_stop() {
     close(_notify_send_fd);
 }
 
+void SignalingWorker::_new_conn(int fd) {
+    RTC_LOG(LS_INFO) << "signaling worker " << _worker_id << ", receive fd: " << fd;
+}
+
 void SignalingWorker::_process_notify(int msg) {
     switch (msg) {
     case QUIT:
         _stop();
+        break;
+    case NEW_CONN:
+        int fd;
+        if (_q_conn.consume(&fd)) {
+            _new_conn(fd);
+        }
         break;
     default:
         RTC_LOG(LS_WARNING) << "unknown msg: " << msg;
