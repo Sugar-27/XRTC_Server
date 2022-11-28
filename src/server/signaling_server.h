@@ -52,7 +52,7 @@ class SignalingServer {
     std::thread* _thread = nullptr;
 
     int _listen_fd = -1;
-    std::vector<SignalingWorker*> _works;
+    std::vector<SignalingWorker*> _workers;
 };
 
 } // namespace xrtc
