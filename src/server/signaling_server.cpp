@@ -39,7 +39,6 @@ void accept_new_conn(EventLoop* el, IOWatcher* w, int fd, int events, void* data
     int cport;
 
     cfd = tcp_accept(fd, cip, &cport);
-    RTC_LOG(LS_ERROR) << "Test: cfd- " << cfd;
     if (cfd == -1) {
         return;
     }
