@@ -10,8 +10,11 @@
 
 #include <string>
 #include <thread>
+#include <vector>
 
 namespace xrtc {
+class SignalingWorker;
+
 struct SignalingServerOptions {
     std::string host;
     int port;
@@ -26,7 +29,7 @@ class SignalingServer {
     ~SignalingServer();
 
     int init(const char* conf_file);
-    void start();
+    bool start();
     void stop();
     int notify(int msg);
     void join();
@@ -37,6 +40,7 @@ class SignalingServer {
   private:
     void _process_notify(int msg);
     void _stop();
+    int _create_worker(int worker_id);
 
   private:
     SignalingServerOptions _options;
@@ -48,6 +52,7 @@ class SignalingServer {
     std::thread* _thread = nullptr;
 
     int _listen_fd = -1;
+    std::vector<SignalingWorker*> _works;
 };
 
 } // namespace xrtc

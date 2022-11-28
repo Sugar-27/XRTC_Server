@@ -9,6 +9,7 @@
 #include "base/event_loop.h"
 #include "base/socket.h"
 #include "rtc_base/logging.h"
+#include "server/signaling_worker.h"
 #include "yaml-cpp/yaml.h"
 
 #include <cerrno>
@@ -69,23 +70,33 @@ int SignalingServer::init(const char* conf_file) {
 
     // 创建TCP_Server
     _listen_fd = create_tcp_server(_options.host.c_str(), _options.port);
+    if (_listen_fd == -1) {
+        return -1;
+    }
     _io_watcher = _el->create_io_event(accept_new_conn, this);
     _el->start_io_event(_io_watcher, _listen_fd, EventLoop::READ);
+
+    // 创建worker
+    for (int i = 0; i < _options.worker_num; ++i) {
+        if (_create_worker(i) != 0) {
+        }
+    }
 
     return 0;
 }
 
-void SignalingServer::start() {
+bool SignalingServer::start() {
     if (_thread) {
         // thread不为空说明之前已经start了
         RTC_LOG(LS_WARNING) << "signaling server already start";
-        return;
+        return false;
     }
     _thread = new std::thread([=]() {
         RTC_LOG(LS_INFO) << "signaling server event loop run";
         _el->start();
         RTC_LOG(LS_INFO) << "signaling server event loop run";
     });
+    return true;
 }
 
 void SignalingServer::stop() { notify(SignalingServer::QUIT); }
@@ -121,6 +132,19 @@ void SignalingServer::_stop() {
     close(_listen_fd);
 
     RTC_LOG(LS_INFO) << "signaling server stop";
+}
+
+int SignalingServer::_create_worker(int worker_id) {
+    RTC_LOG(LS_INFO) << "create worker, worker_id: " << worker_id;
+    SignalingWorker* worker = new SignalingWorker(worker_id);
+    if (worker->init() != 0) {
+        return -1;
+    }
+
+    if (!worker->start()) {
+        return -1;
+    }
+    return 0;
 }
 
 void SignalingServer::join() {
