@@ -4,7 +4,8 @@
  * @Describe:
  */
 #include "server/tcp_connection.h"
+#include "rtc_base/sds.h"
 namespace xrtc {
-TcpConnection::TcpConnection(int fd) : fd(fd) {}
+TcpConnection::TcpConnection(int fd) : fd(fd), querybuf(sdsempty()) {}
 TcpConnection::~TcpConnection() {}
 } // namespace xrtc

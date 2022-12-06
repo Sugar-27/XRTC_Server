@@ -147,6 +147,8 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o
  ../../rtcbase/src/rtc_base/constructor_magic.h
  ../../rtcbase/src/rtc_base/logging.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+ ../../rtcbase/src/rtc_base/sds.h
+ ../../rtcbase/src/rtc_base/slice.h
  ../../rtcbase/src/rtc_base/string_encode.h
  ../../rtcbase/src/rtc_base/string_to_number.h
  ../../rtcbase/src/rtc_base/strings/string_builder.h
@@ -156,6 +158,7 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o
  ../src/base/event_loop.h
  ../src/base/lock_free_queue.h
  ../src/base/socket.h
+ ../src/base/x_header.h
  ../src/server/signaling_server.h
  ../src/server/signaling_worker.h
  ../src/server/tcp_connection.h
@@ -215,6 +218,8 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o
  ../../rtcbase/src/rtc_base/constructor_magic.h
  ../../rtcbase/src/rtc_base/logging.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+ ../../rtcbase/src/rtc_base/sds.h
+ ../../rtcbase/src/rtc_base/slice.h
  ../../rtcbase/src/rtc_base/string_encode.h
  ../../rtcbase/src/rtc_base/string_to_number.h
  ../../rtcbase/src/rtc_base/strings/string_builder.h
@@ -224,6 +229,7 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o
  ../src/base/event_loop.h
  ../src/base/lock_free_queue.h
  ../src/base/socket.h
+ ../src/base/x_header.h
  ../src/server/signaling_server.h
  ../src/server/signaling_worker.h
  ../src/server/tcp_connection.h
@@ -247,6 +253,8 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o
  ../third_part/include/absl/utility/utility.h
  /home/sugar/project/cpp/xrtcserver/src/server/signaling_worker.cpp
 CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o
+ ../../rtcbase/src/rtc_base/sds.h
  ../src/base/event_loop.h
+ ../src/base/x_header.h
  ../src/server/tcp_connection.h
  /home/sugar/project/cpp/xrtcserver/src/server/tcp_connection.cpp

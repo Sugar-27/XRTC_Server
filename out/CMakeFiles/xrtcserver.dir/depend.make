@@ -146,6 +146,8 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/r
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/rtc_base/constructor_magic.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/rtc_base/logging.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/rtc_base/sds.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/rtc_base/slice.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/rtc_base/string_encode.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/rtc_base/string_to_number.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/rtc_base/strings/string_builder.h
@@ -155,6 +157,7 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../../rtcbase/src/r
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../src/base/event_loop.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../src/base/lock_free_queue.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../src/base/socket.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../src/base/x_header.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../src/server/signaling_server.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../src/server/signaling_worker.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../src/server/tcp_connection.h
@@ -214,6 +217,8 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/r
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/rtc_base/constructor_magic.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/rtc_base/logging.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/rtc_base/sds.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/rtc_base/slice.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/rtc_base/string_encode.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/rtc_base/string_to_number.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/rtc_base/strings/string_builder.h
@@ -223,6 +228,7 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/r
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/base/event_loop.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/base/lock_free_queue.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/base/socket.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/base/x_header.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/server/signaling_server.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/server/signaling_worker.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/server/tcp_connection.h
@@ -246,7 +252,9 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/inclu
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/absl/utility/utility.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/server/signaling_worker.cpp
 
+CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../../rtcbase/src/rtc_base/sds.h
 CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../src/base/event_loop.h
+CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../src/base/x_header.h
 CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../src/server/tcp_connection.h
 CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../src/server/tcp_connection.cpp
 

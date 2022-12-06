@@ -8,7 +8,10 @@
 
 #include "base/event_loop.h"
 #include "base/socket.h"
+#include "base/x_header.h"
 #include "rtc_base/logging.h"
+#include "rtc_base/sds.h"
+#include "rtc_base/slice.h"
 #include "server/signaling_server.h"
 #include "server/tcp_connection.h"
 
@@ -123,7 +126,76 @@ void SignalingWorker::_new_conn(int fd) {
 
 void SignalingWorker::_read_query(int fd) {
     RTC_LOG(LS_INFO) << "signaling worker " << _worker_id << " receive read event, fd: " << fd;
-    return;
+    if (fd < 0 || (size_t)fd >= _conns.size()) {
+        RTC_LOG(LS_WARNING) << "invalid fd: " << fd;
+        return;
+    }
+
+    TcpConnection* c = _conns[fd];
+    int nread = 0;                                       // 用于存放实际读取的大小
+    int read_len = c->bytes_expected;                    // 期待读取的大小
+    int qb_len = sdslen(c->querybuf);                    // buffer里已经有的大小
+    c->querybuf = sdsMakeRoomFor(c->querybuf, read_len); // 扩充buffer可用空间大小
+    nread = sock_read_data(fd, c->querybuf + qb_len, read_len);
+    RTC_LOG(LS_INFO) << "sock read data, len: " << nread;
+    if (nread == -1) {
+        _close_conn(c);
+        return;
+    } else if (nread > 0) {
+        sdsIncrLen(c->querybuf, nread); // 变更读取的长度
+    }
+
+    int ret = _process_query_buffer(c);
+    if (ret != 0) {
+        _close_conn(c);
+        return;
+    }
+}
+
+void SignalingWorker::_close_conn(TcpConnection* c) {
+    close(c->fd);
+    _remove_conn(c);
+}
+
+void SignalingWorker::_remove_conn(TcpConnection* c) {
+    _el->delete_io_event(c->io_watcher);
+    _conns[c->fd] = nullptr;
+    delete c;
+}
+
+int SignalingWorker::_process_query_buffer(TcpConnection* c) {
+    while (sdslen(c->querybuf) >= c->bytes_processed + c->bytes_expected) {
+        // 数据已经读取完整了
+        xhead_t* head = (xhead_t*)(c->querybuf);
+        if (c->current_state == TcpConnection::STATE_HEAD) { // 读头部
+            // 使用magic number判断合法性
+            if (head->magic_num != XHEAD_MAGIC_NUM) {
+                RTC_LOG(LS_WARNING) << "invalid data, fd: " << c->fd;
+                return -1;
+            }
+            c->current_state = TcpConnection::STATE_BODY;
+            c->bytes_processed = XHEAD_SIZE;
+            c->bytes_expected = head->body_len;
+        } else { // 读报文
+            rtc::Slice header(c->querybuf, XHEAD_SIZE);
+            rtc::Slice body(c->querybuf + XHEAD_SIZE, head->body_len);
+
+            int ret = _process_request(c, header, body);
+            if (ret != 0) {
+                return -1;
+            }
+
+            // 假定是一个短连接请求，后续处理不考虑
+            c->bytes_expected = 65535;
+        }
+    }
+    return 0;
+}
+
+int SignalingWorker::_process_request(TcpConnection* c, const rtc::Slice& header, const rtc::Slice& body) {
+    RTC_LOG(LS_INFO) << "receive body: " << body.data();
+
+    return 0;
 }
 
 void SignalingWorker::_process_notify(int msg) {

@@ -13,19 +13,18 @@
 #include <cerrno>
 #include <cstdio>
 #include <cstring>
+#include <fcntl.h>
 #include <netinet/in.h>
+#include <netinet/tcp.h>
 #include <sys/socket.h>
 #include <unistd.h>
-#include <fcntl.h>
-#include <netinet/tcp.h>
 
 namespace xrtc {
 int create_tcp_server(const char* addr, int port) {
     // 1. 创建socket
     int sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock == -1) {
-        RTC_LOG(LS_WARNING) << "create socket error, errno: " << errno
-                            << ", error: " << strerror(errno);
+        RTC_LOG(LS_WARNING) << "create socket error, errno: " << errno << ", error: " << strerror(errno);
         return -1;
     }
 
@@ -33,8 +32,7 @@ int create_tcp_server(const char* addr, int port) {
     int on = 1;
     int ret = setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on));
     if (ret == -1) {
-        RTC_LOG(LS_WARNING) << "setsockopt SO_REUSEADDR error, errno: " << errno << ", error"
-                            << strerror(errno);
+        RTC_LOG(LS_WARNING) << "setsockopt SO_REUSEADDR error, errno: " << errno << ", error" << strerror(errno);
         close(sock);
         return -1;
     }
@@ -131,7 +129,7 @@ int sock_setnodelay(int sock) {
     return 0;
 }
 
-int sock_peer_to_str(int sock, char *ip, int *port) {
+int sock_peer_to_str(int sock, char* ip, int* port) {
     struct sockaddr_in sa;
     socklen_t salen;
 
@@ -148,7 +146,7 @@ int sock_peer_to_str(int sock, char *ip, int *port) {
     }
 
     if (ip) {
-        strcpy(ip, inet_ntoa(sa.sin_addr));   
+        strcpy(ip, inet_ntoa(sa.sin_addr));
     }
 
     if (port) {
@@ -156,5 +154,22 @@ int sock_peer_to_str(int sock, char *ip, int *port) {
     }
 
     return 0;
-} 
+}
+
+int sock_read_data(int sock, char* buf, size_t len) {
+    int nread = read(sock, buf, len);
+    if (nread == -1) {
+        if (errno == EAGAIN) {
+            nread = 0;
+        } else {
+            RTC_LOG(LS_WARNING) << "sock read failed, error: " << strerror(errno) << ", errno: " << errno
+                                << ", fd: " << sock;
+            return -1;
+        }
+    } else if (nread == 0) {
+        RTC_LOG(LS_WARNING) << "connection closed by peer, fd: " << sock;
+        return -1;
+    }
+    return nread;
+}
 } // namespace xrtc
