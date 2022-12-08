@@ -12,6 +12,7 @@
 #include "server/signaling_server.h"
 #include "server/tcp_connection.h"
 
+#include "json/json.h"
 #include <thread>
 #include <vector>
 namespace xrtc {
@@ -43,6 +44,7 @@ class SignalingWorker {
     void _process_timeout(TcpConnection* c);
     int _process_query_buffer(TcpConnection* c);
     int _process_request(TcpConnection* c, const rtc::Slice& header, const rtc::Slice& body);
+    int _process_push(int cmdno, TcpConnection* c, const Json::Value& v, uint32_t log_id);
 
   private:
     int _worker_id;

@@ -14,8 +14,13 @@
 #include "rtc_base/slice.h"
 #include "server/signaling_server.h"
 #include "server/tcp_connection.h"
+#include "xrtcserver_def.h"
 
+#include "json/config.h"
+#include "json/value.h"
+#include <cstdint>
 #include <cstring>
+#include <memory>
 #include <thread>
 #include <unistd.h>
 namespace xrtc {
@@ -30,7 +35,8 @@ void signaling_worker_recv_notify(EventLoop* /*el*/, IOWatcher* /*w*/, int fd, i
     worker->_process_notify(msg);
 }
 
-SignalingWorker::SignalingWorker(int worker_id, const SignalingServerOptions& options) : _worker_id(worker_id), _options(options), _el(new EventLoop(this)) {}
+SignalingWorker::SignalingWorker(int worker_id, const SignalingServerOptions& options)
+    : _worker_id(worker_id), _options(options), _el(new EventLoop(this)) {}
 
 SignalingWorker::~SignalingWorker() {
     // 连接的清理要在Evenloop之前，否则close_conn时还要用到el
@@ -235,6 +241,65 @@ int SignalingWorker::_process_query_buffer(TcpConnection* c) {
 
 int SignalingWorker::_process_request(TcpConnection* c, const rtc::Slice& header, const rtc::Slice& body) {
     RTC_LOG(LS_INFO) << "receive body: " << body.data();
+
+    xhead_t* xh = (xhead_t*)header.data();
+
+    // 解析body数据
+    Json::CharReaderBuilder builder;
+    std::unique_ptr<Json::CharReader> reader(builder.newCharReader());
+    Json::Value root;
+    JSONCPP_STRING err;
+    reader->parse(body.data(), body.data() + body.size(), &root, &err);
+    if (!err.empty()) {
+        RTC_LOG(LS_WARNING) << "parse json body error: " << err << ", fd: " << c->fd << ", log_id: " << xh->log_id;
+    }
+
+    int cmdno;
+    try {
+        cmdno = root["cmdno"].asInt();
+    } catch (const Json::Exception& e) {
+        RTC_LOG(LS_WARNING) << "no cmdno field in body, log_id: " << xh->log_id;
+        return -1;
+    }
+
+    switch (cmdno) {
+    case CMDNO_PUSH:
+        return _process_push(cmdno, c, root, xh->log_id);
+    default:
+        break;
+    }
+
+    return 0;
+}
+
+int SignalingWorker::_process_push(int cmdno, TcpConnection* c, const Json::Value& root, uint32_t log_id) {
+    uint64_t uid;
+    std::string stream_name;
+    int audio;
+    int video;
+
+    try {
+        uid = root["uid"].asUInt64();
+        stream_name = root["stream_name"].asString();
+        audio = root["audio"].asInt();
+        video = root["video"].asInt();
+    } catch (const Json::Exception& e) {
+        RTC_LOG(LS_WARNING) << "parse json body error: " << e.what() << ", log_id: " << log_id;
+        return -1;
+    }
+
+    RTC_LOG(LS_INFO) << "cmdno[" << cmdno << "], uid[" << uid << "], stream_name[" << stream_name << "], audio["
+                     << audio << "], video[" << video << "] signaling server push request";
+
+    std::shared_ptr<RtcMsg> msg = std::make_shared<RtcMsg>();
+    msg->cmdno = cmdno;
+    msg->uid = uid;
+    msg->stream_name = stream_name;
+    msg->audio = audio;
+    msg->video = video;
+
+    // TODO: 全局xrtc指针用于消息队列传送消息
+    // return g_xrtc_server->send_rtc_msg(msg);
 
     return 0;
 }

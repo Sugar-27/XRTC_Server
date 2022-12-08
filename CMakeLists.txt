@@ -31,4 +31,5 @@ target_link_libraries(
     libabsl_strings.a 
     libabsl_throw_delegate.a 
     libev.a
+    libjsoncpp.a
 )

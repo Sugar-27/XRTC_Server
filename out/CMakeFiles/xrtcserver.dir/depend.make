@@ -179,6 +179,15 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/inclu
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/absl/types/internal/optional.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/absl/types/optional.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/absl/utility/utility.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/json/allocator.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/json/config.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/json/forwards.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/json/json.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/json/json_features.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/json/reader.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/json/value.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/json/version.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/json/writer.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/yaml-cpp/binary.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/yaml-cpp/dll.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o: ../third_part/include/yaml-cpp/emitter.h
@@ -232,6 +241,7 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/base/x_heade
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/server/signaling_server.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/server/signaling_worker.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/server/tcp_connection.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/xrtcserver_def.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/absl/base/attributes.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/absl/base/config.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/absl/base/internal/identity.h
@@ -250,6 +260,15 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/inclu
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/absl/types/internal/optional.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/absl/types/optional.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/absl/utility/utility.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/json/allocator.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/json/config.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/json/forwards.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/json/json.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/json/json_features.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/json/reader.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/json/value.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/json/version.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/include/json/writer.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/server/signaling_worker.cpp
 
 CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../../rtcbase/src/rtc_base/sds.h
