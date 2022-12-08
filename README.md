@@ -21,3 +21,6 @@ CMake编译中间文件以及最后生成的二进制可执行文件（xrtcserve
 ### third_part
 本项目使用的第三方库
 系统配置解析库：[yaml-cpp](https://github.com/jbeder/yaml-cpp)
+事件通知处理库：[libev](https://github.com/enki/libev)
+LOG日志模块库增强：使用[absl]增强rtc_base/logging中的日志库
+JSON序列化与反序列化库：[Jsoncpp](https://github.com/open-source-parsers/jsoncpp)
