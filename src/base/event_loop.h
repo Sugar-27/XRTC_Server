@@ -23,6 +23,8 @@ class EventLoop {
 
     void start();
     void stop();
+    void* owner();
+    unsigned long now();
 
     // IOWatcher
     IOWatcher* create_io_event(io_cb_t cb, void* data);

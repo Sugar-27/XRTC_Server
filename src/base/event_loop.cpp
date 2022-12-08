@@ -8,9 +8,9 @@
 
 #include <libev/ev.h>
 
-#define TRANS_TO_EV_MASK(event_mask)                                                               \
+#define TRANS_TO_EV_MASK(event_mask)                                                                                   \
     (((event_mask)&EventLoop::READ ? EV_READ : 0) | ((event_mask)&EventLoop::WRITE ? EV_WRITE : 0))
-#define TRANS_FROM_EV_MASK(event_mask)                                                             \
+#define TRANS_FROM_EV_MASK(event_mask)                                                                                 \
     (((event_mask)&EV_READ ? EventLoop::READ : 0) | ((event_mask)&EV_WRITE ? EventLoop::WRITE : 0))
 
 namespace xrtc {
@@ -22,11 +22,13 @@ void EventLoop::start() { ev_run(_loop); }
 
 void EventLoop::stop() { ev_break(_loop, EVBREAK_ALL); }
 
+void* EventLoop::owner() { return _owner; }
+
+unsigned long EventLoop::now() { return static_cast<unsigned long>(ev_now(_loop) * 1000000); }
+
 class IOWatcher {
   public:
-    IOWatcher(EventLoop* el, io_cb_t cb, void* data) : el(el), cb(cb), data(data) {
-        io.data = this;
-    }
+    IOWatcher(EventLoop* el, io_cb_t cb, void* data) : el(el), cb(cb), data(data) { io.data = this; }
 
   public:
     EventLoop* el;
@@ -124,6 +126,7 @@ void EventLoop::start_timer(TimerWatcher* w, unsigned int usec) {
     float sec = float(usec) / 1000000; // 微秒转换成秒
 
     if (!w->need_repeat) {
+        ev_timer_stop(_loop, timer);
         ev_timer_set(timer, sec, 0);
         ev_timer_start(_loop, timer);
     } else {

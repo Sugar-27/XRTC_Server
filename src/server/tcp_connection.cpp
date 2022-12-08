@@ -7,5 +7,7 @@
 #include "rtc_base/sds.h"
 namespace xrtc {
 TcpConnection::TcpConnection(int fd) : fd(fd), querybuf(sdsempty()) {}
-TcpConnection::~TcpConnection() {}
+TcpConnection::~TcpConnection() {
+    sdsfree(querybuf);
+}
 } // namespace xrtc

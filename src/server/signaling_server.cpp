@@ -180,7 +180,7 @@ void SignalingServer::_stop() {
 
 int SignalingServer::_create_worker(int worker_id) {
     RTC_LOG(LS_INFO) << "create worker, worker_id: " << worker_id;
-    SignalingWorker* worker = new SignalingWorker(worker_id);
+    SignalingWorker* worker = new SignalingWorker(worker_id, _options);
     if (worker->init() != 0) {
         return -1;
     }

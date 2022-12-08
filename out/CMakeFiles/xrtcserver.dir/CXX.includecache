@@ -173,6 +173,8 @@ base/lock_free_queue.h
 ../src/server/base/lock_free_queue.h
 rtc_base/slice.h
 ../src/server/rtc_base/slice.h
+server/signaling_server.h
+../src/server/server/signaling_server.h
 server/tcp_connection.h
 ../src/server/server/tcp_connection.h
 thread
@@ -433,4 +435,10 @@ thread
 -
 unistd.h
 -
+
+/home/sugar/project/cpp/xrtcserver/src/server/tcp_connection.cpp
+server/tcp_connection.h
+/home/sugar/project/cpp/xrtcserver/src/server/server/tcp_connection.h
+rtc_base/sds.h
+/home/sugar/project/cpp/xrtcserver/src/server/rtc_base/sds.h
 
