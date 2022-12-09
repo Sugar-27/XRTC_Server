@@ -12,6 +12,7 @@
 #include "rtc_base/logging.h"
 #include "rtc_base/sds.h"
 #include "rtc_base/slice.h"
+#include "server/rtc_server.h"
 #include "server/signaling_server.h"
 #include "server/tcp_connection.h"
 #include "xrtcserver_def.h"
@@ -23,6 +24,8 @@
 #include <memory>
 #include <thread>
 #include <unistd.h>
+
+extern xrtc::RtcServer* g_rtc_server;
 namespace xrtc {
 void signaling_worker_recv_notify(EventLoop* /*el*/, IOWatcher* /*w*/, int fd, int /*events*/, void* data) {
     int msg;
@@ -298,10 +301,8 @@ int SignalingWorker::_process_push(int cmdno, TcpConnection* c, const Json::Valu
     msg->audio = audio;
     msg->video = video;
 
-    // TODO: 全局xrtc指针用于消息队列传送消息
-    // return g_xrtc_server->send_rtc_msg(msg);
-
-    return 0;
+    // 全局xrtc指针用于消息队列传送消息
+    return g_rtc_server->send_rtc_msg(msg);
 }
 
 void SignalingWorker::_process_notify(int msg) {

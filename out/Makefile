@@ -258,6 +258,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/server/rtc_server.o: src/server/rtc_server.cpp.o
+
+.PHONY : src/server/rtc_server.o
+
+# target to build an object file
+src/server/rtc_server.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o
+.PHONY : src/server/rtc_server.cpp.o
+
+src/server/rtc_server.i: src/server/rtc_server.cpp.i
+
+.PHONY : src/server/rtc_server.i
+
+# target to preprocess a source file
+src/server/rtc_server.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.i
+.PHONY : src/server/rtc_server.cpp.i
+
+src/server/rtc_server.s: src/server/rtc_server.cpp.s
+
+.PHONY : src/server/rtc_server.s
+
+# target to generate assembly for a file
+src/server/rtc_server.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.s
+.PHONY : src/server/rtc_server.cpp.s
+
 src/server/signaling_server.o: src/server/signaling_server.cpp.o
 
 .PHONY : src/server/signaling_server.o
@@ -363,6 +390,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/server/rtc_server.o"
+	@echo "... src/server/rtc_server.i"
+	@echo "... src/server/rtc_server.s"
 	@echo "... src/server/signaling_server.o"
 	@echo "... src/server/signaling_server.i"
 	@echo "... src/server/signaling_server.s"

@@ -6,6 +6,7 @@
 #include "base/conf.h"
 #include "base/log.h"
 #include "rtc_base/logging.h"
+#include "server/rtc_server.h"
 #include "server/signaling_server.h"
 
 #include <csignal>
@@ -17,6 +18,7 @@
 xrtc::GeneralConf* g_conf = nullptr;
 xrtc::XrtcLog* g_log = nullptr;
 xrtc::SignalingServer* g_signaling_server = nullptr;
+xrtc::RtcServer* g_rtc_server = nullptr;
 
 int init_general_conf(const char* filename) {
     if (!filename) {
@@ -57,11 +59,23 @@ int init_signaling_server(const char* conf_file) {
     return 0;
 }
 
+int init_rtc_server(const char* conf_file) {
+    g_rtc_server = new xrtc::RtcServer();
+    int ret = g_rtc_server->init(conf_file);
+    if (ret != 0) {
+        return -1;
+    }
+    return 0;
+}
+
 static void process_signal(int sig) {
     RTC_LOG(LS_INFO) << "receive signal: " << sig;
     if (sig == SIGINT || sig == SIGTERM) {
         if (g_signaling_server) {
             g_signaling_server->stop();
+        }
+        if (g_rtc_server) {
+            g_rtc_server->stop();
         }
     }
 }
@@ -86,11 +100,21 @@ int main() {
         return -1;
     }
 
+    // 初始化RTC服务服务器
+    ret = init_rtc_server("./conf/rtc_server.yaml");
+    if (ret != 0) {
+        RTC_LOG(LS_WARNING) << "init rtc server failed";
+        return -1;
+    }
+
     signal(SIGINT, process_signal);
     signal(SIGTERM, process_signal);
 
     g_signaling_server->start();
+    g_rtc_server->start();
+
     g_signaling_server->join();
+    g_rtc_server->join();
 
     // g_log->join();
 

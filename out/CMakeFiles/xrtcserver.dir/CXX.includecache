@@ -156,6 +156,20 @@ sys/socket.h
 cstdint
 -
 
+../src/server/rtc_server.h
+base/event_loop.h
+../src/server/base/event_loop.h
+xrtcserver_def.h
+../src/server/xrtcserver_def.h
+memory
+-
+mutex
+-
+queue
+-
+thread
+-
+
 ../src/server/signaling_server.h
 base/event_loop.h
 ../src/server/base/event_loop.h
@@ -525,6 +539,8 @@ rtc_base/sds.h
 /home/sugar/project/cpp/xrtcserver/src/server/rtc_base/sds.h
 rtc_base/slice.h
 /home/sugar/project/cpp/xrtcserver/src/server/rtc_base/slice.h
+server/rtc_server.h
+/home/sugar/project/cpp/xrtcserver/src/server/server/rtc_server.h
 server/signaling_server.h
 /home/sugar/project/cpp/xrtcserver/src/server/server/signaling_server.h
 server/tcp_connection.h
