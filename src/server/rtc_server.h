@@ -12,6 +12,7 @@
 #include <memory>
 #include <mutex>
 #include <queue>
+#include <string>
 #include <thread>
 #include <vector>
 namespace xrtc {
@@ -45,6 +46,7 @@ class RtcServer {
     void _process_rtc_msg();
     void _stop();
     int _create_worker(int worker_id);
+    RtcWorker* _get_worker(const std::string& stream_name);
 
   private:
     EventLoop* _el;

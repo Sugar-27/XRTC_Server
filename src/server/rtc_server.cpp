@@ -7,15 +7,19 @@
 
 #include "base/event_loop.h"
 #include "rtc_base/logging.h"
+#include "rtc_base/crc32.h"
 #include "xrtcserver_def.h"
 #include "server/rtc_worker.h"
 #include "yaml-cpp/yaml.h"
 
 #include <cerrno>
 #include <cstddef>
+#include <cstdint>
 #include <cstring>
 #include <memory>
 #include <mutex>
+#include <string>
+#include <sys/types.h>
 #include <thread>
 #include <unistd.h>
 
@@ -146,10 +150,25 @@ void RtcServer::_process_notify(int msg) {
     }
 }
 
+RtcWorker* RtcServer::_get_worker(const std::string& stream_name) {
+    if (_workers.size() == 0 || _workers.size() != static_cast<size_t>(_options.worker_num)) {
+        return nullptr;
+    }
+    // 字符串转换为数字
+    uint32_t num = rtc::ComputeCrc32(stream_name);
+    size_t index = num % _options.worker_num;
+    return _workers[index];
+}
+
 void RtcServer::_process_rtc_msg() {
     auto msg = pop_msg();
     if (!msg) {
         return;
+    }
+
+    RtcWorker* worker = _get_worker(msg->stream_name);
+    if (worker) {
+        worker->send_rtc_msg(msg);
     }
 
     RTC_LOG(LS_WARNING) << "===========chdno: " << msg->cmdno << ", uid: " << msg->uid;

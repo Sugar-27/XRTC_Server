@@ -7,9 +7,12 @@
 
 #include "base/event_loop.h"
 #include "rtc_base/logging.h"
+#include "server/signaling_worker.h"
+#include "xrtcserver_def.h"
 
 #include <cerrno>
 #include <cstring>
+#include <memory>
 #include <thread>
 #include <unistd.h>
 namespace xrtc {
@@ -55,7 +58,7 @@ int RtcWorker::init() {
     return 0;
 }
 
-bool RtcWorker::start() { 
+bool RtcWorker::start() {
     if (_thread) {
         RTC_LOG(LS_WARNING) << "rtc worker already start, worker_id: " << _worker_id;
         return false;
@@ -69,9 +72,7 @@ bool RtcWorker::start() {
     return true;
 }
 
-void RtcWorker::stop() {
-    notify(QUIT);
-}
+void RtcWorker::stop() { notify(QUIT); }
 
 void RtcWorker::join() {
     if (_thread && _thread->joinable()) {
@@ -82,6 +83,16 @@ void RtcWorker::join() {
 int RtcWorker::notify(int msg) {
     int written = write(_notify_send_fd, &msg, sizeof(int));
     return written == sizeof(int) ? 0 : -1;
+}
+
+void RtcWorker::push_msg(std::shared_ptr<RtcMsg> msg) { _q_msg.produce(msg); }
+
+bool RtcWorker::pop_msg(std::shared_ptr<RtcMsg>* msg) { return _q_msg.consume(msg); }
+
+int RtcWorker::send_rtc_msg(std::shared_ptr<RtcMsg> msg) {
+    // 将消息投递到worker的队列中
+    push_msg(msg);
+    return notify(RTC_MSG);
 }
 
 void RtcWorker::_stop() {
@@ -102,10 +113,41 @@ void RtcWorker::_process_notify(int msg) {
         _stop();
         break;
     case RTC_MSG:
+        _process_rtc_msg();
         break;
     default:
         RTC_LOG(LS_WARNING) << "unknown msg: " << msg;
         break;
+    }
+}
+
+void RtcWorker::_process_push(std::shared_ptr<RtcMsg> msg) {
+    std::string offer = "offer";    // 暂时假设offer已经创建成功
+
+    msg->sdp = offer;
+
+    SignalingWorker* worker = static_cast<SignalingWorker*>(msg->worker);
+    if (worker) {
+        worker->send_rtc_msg(msg);
+    }
+    
+}
+
+void RtcWorker::_process_rtc_msg() {
+    std::shared_ptr<RtcMsg> msg;
+    if (!pop_msg(&msg)) {
+        return;
+    }
+
+    RTC_LOG(LS_INFO) << "cmdno[" << msg->cmdno << "], uid[" << msg->uid << "], stream_name["
+                     << "], audio[" << msg->audio << "], video[" << msg->video
+                     << "] rtc worker receive msg, worker id: " << _worker_id;
+    switch (msg->cmdno) {
+    case CMDNO_PUSH:
+        _process_push(msg);
+        break;
+    default:
+        RTC_LOG(LS_WARNING) << "unknown cmdno: " << msg->cmdno << ", log_id: " << msg->log_id;
     }
 }
 } // namespace xrtc

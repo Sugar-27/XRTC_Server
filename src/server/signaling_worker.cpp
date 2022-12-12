@@ -22,6 +22,7 @@
 #include <cstdint>
 #include <cstring>
 #include <memory>
+#include <mutex>
 #include <thread>
 #include <unistd.h>
 
@@ -106,6 +107,26 @@ void SignalingWorker::join() {
 int SignalingWorker::notify_new_conn(int fd) {
     _q_conn.produce(fd);
     return notify(SignalingWorker::NEW_CONN);
+}
+
+int SignalingWorker::send_rtc_msg(std::shared_ptr<RtcMsg> msg) {
+    push_msg(msg);
+    return notify(RTC_MSG);
+}
+
+void SignalingWorker::push_msg(std::shared_ptr<RtcMsg> msg) {
+    std::unique_lock<std::mutex> lock(_q_msg_mtx);
+    _q_msg.push(msg);
+}
+
+std::shared_ptr<RtcMsg> SignalingWorker::pop_msg() {
+    std::unique_lock<std::mutex> lock(_q_msg_mtx);
+    if (_q_msg.empty()) {
+        return nullptr;
+    }
+    auto msg = _q_msg.front();
+    _q_msg.pop();
+    return msg;
 }
 
 void SignalingWorker::_stop() {
@@ -300,9 +321,31 @@ int SignalingWorker::_process_push(int cmdno, TcpConnection* c, const Json::Valu
     msg->stream_name = stream_name;
     msg->audio = audio;
     msg->video = video;
+    msg->log_id = log_id;
+    msg->worker = this;
+    msg->conn = c;
 
     // 全局xrtc指针用于消息队列传送消息
     return g_rtc_server->send_rtc_msg(msg);
+}
+
+void SignalingWorker::_response_server_offer(std::shared_ptr<RtcMsg> msg) {
+    RTC_LOG(LS_WARNING) << "==========response server offer: " << msg->sdp;
+}
+
+void SignalingWorker::_process_rtc_msg() {
+    auto msg = pop_msg();
+    if (!msg) {
+        return;
+    }
+
+    switch (msg->cmdno) {
+    case CMDNO_PUSH:
+        _response_server_offer(msg);
+        break;
+    default:
+        RTC_LOG(LS_WARNING) << "unknown cmdno: " << msg->cmdno << ", log_id: " << msg->log_id;
+    }
 }
 
 void SignalingWorker::_process_notify(int msg) {
@@ -315,6 +358,9 @@ void SignalingWorker::_process_notify(int msg) {
         if (_q_conn.consume(&fd)) {
             _new_conn(fd);
         }
+        break;
+    case RTC_MSG:
+        _process_rtc_msg();
         break;
     default:
         RTC_LOG(LS_WARNING) << "unknown msg: " << msg;
