@@ -285,6 +285,33 @@ src/server/rtc_server.cpp.s:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.s
 .PHONY : src/server/rtc_server.cpp.s
 
+src/server/rtc_worker.o: src/server/rtc_worker.cpp.o
+
+.PHONY : src/server/rtc_worker.o
+
+# target to build an object file
+src/server/rtc_worker.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o
+.PHONY : src/server/rtc_worker.cpp.o
+
+src/server/rtc_worker.i: src/server/rtc_worker.cpp.i
+
+.PHONY : src/server/rtc_worker.i
+
+# target to preprocess a source file
+src/server/rtc_worker.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.i
+.PHONY : src/server/rtc_worker.cpp.i
+
+src/server/rtc_worker.s: src/server/rtc_worker.cpp.s
+
+.PHONY : src/server/rtc_worker.s
+
+# target to generate assembly for a file
+src/server/rtc_worker.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.s
+.PHONY : src/server/rtc_worker.cpp.s
+
 src/server/signaling_server.o: src/server/signaling_server.cpp.o
 
 .PHONY : src/server/signaling_server.o
@@ -393,6 +420,9 @@ help:
 	@echo "... src/server/rtc_server.o"
 	@echo "... src/server/rtc_server.i"
 	@echo "... src/server/rtc_server.s"
+	@echo "... src/server/rtc_worker.o"
+	@echo "... src/server/rtc_worker.i"
+	@echo "... src/server/rtc_worker.s"
 	@echo "... src/server/signaling_server.o"
 	@echo "... src/server/signaling_server.i"
 	@echo "... src/server/signaling_server.s"

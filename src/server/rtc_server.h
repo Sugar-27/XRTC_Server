@@ -13,10 +13,13 @@
 #include <mutex>
 #include <queue>
 #include <thread>
+#include <vector>
 namespace xrtc {
 struct RtcServerOptions {
     int worker_num;
 };
+
+class RtcWorker;
 
 class RtcServer {
   public:
@@ -41,6 +44,7 @@ class RtcServer {
     void _process_notify(int msg);
     void _process_rtc_msg();
     void _stop();
+    int _create_worker(int worker_id);
 
   private:
     EventLoop* _el;
@@ -49,6 +53,7 @@ class RtcServer {
     std::thread* _thread = nullptr;
     std::queue<std::shared_ptr<RtcMsg>> _q_msg;
     std::mutex _q_msg_mtx;
+    std::vector<RtcWorker*> _workers;
 
     IOWatcher* _pipe_watcher = nullptr;
     int _notify_recv_fd = -1;
