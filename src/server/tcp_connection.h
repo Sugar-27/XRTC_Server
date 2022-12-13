@@ -9,8 +9,10 @@
 #include "base/event_loop.h"
 #include "base/x_header.h"
 #include "rtc_base/sds.h"
+#include "rtc_base/slice.h"
 
 #include <cstddef>
+#include <list>
 namespace xrtc {
 class TcpConnection {
   public:
@@ -29,6 +31,8 @@ class TcpConnection {
     size_t bytes_processed = 0;
     int current_state = STATE_HEAD;
     unsigned long last_interaction = 0;
+    std::list<rtc::Slice> reply_list;
+    size_t cur_resp_pos = 0;
 };
 } // namespace xrtc
 

@@ -356,6 +356,7 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/r
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/rtc_base/system/inline.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/rtc_base/system/rtc_export.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/rtc_base/type_traits.h
+CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../../rtcbase/src/rtc_base/zmalloc.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/base/event_loop.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/base/lock_free_queue.h
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/base/socket.h
@@ -395,6 +396,7 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../third_part/inclu
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o: ../src/server/signaling_worker.cpp
 
 CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../../rtcbase/src/rtc_base/sds.h
+CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../../rtcbase/src/rtc_base/slice.h
 CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../src/base/event_loop.h
 CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../src/base/x_header.h
 CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../src/server/tcp_connection.h

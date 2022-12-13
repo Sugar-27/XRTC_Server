@@ -12,6 +12,7 @@
 #include "rtc_base/logging.h"
 #include "rtc_base/sds.h"
 #include "rtc_base/slice.h"
+#include "rtc_base/zmalloc.h"
 #include "server/rtc_server.h"
 #include "server/signaling_server.h"
 #include "server/tcp_connection.h"
@@ -19,10 +20,13 @@
 
 #include "json/config.h"
 #include "json/value.h"
+#include "json/writer.h"
 #include <cstdint>
+#include <cstdio>
 #include <cstring>
 #include <memory>
 #include <mutex>
+#include <string>
 #include <thread>
 #include <unistd.h>
 
@@ -148,6 +152,10 @@ void conn_io_cb(EventLoop* /*el*/, IOWatcher* /*w*/, int fd, int events, void* d
     if (events & EventLoop::READ) {
         worker->_read_query(fd);
     }
+
+    if (events & EventLoop::WRITE) {
+        worker->_write_reply(fd);
+    }
 }
 
 void SignalingWorker::_process_timeout(TcpConnection* c) {
@@ -218,6 +226,43 @@ void SignalingWorker::_read_query(int fd) {
     if (ret != 0) {
         _close_conn(c);
         return;
+    }
+}
+
+void SignalingWorker::_write_reply(int fd) {
+    if (fd <= 0 || static_cast<size_t>(fd) >= _conns.size()) {
+        return;
+    }
+
+    auto c = _conns[fd];
+    if (!c) {
+        return;
+    }
+
+    while (!c->reply_list.empty()) {
+        rtc::Slice reply = c->reply_list.front();
+        int nwritten = sock_write_data(c->fd, reply.data() + c->cur_resp_pos, reply.size() - c->cur_resp_pos);
+        if (nwritten == -1) {
+            _close_conn(c);
+            return;
+        } else if (nwritten == 0) {
+            RTC_LOG(LS_WARNING) << "write zero bytes, fd: " << c->fd << ", worker_id: " << _worker_id;
+        } else if (nwritten + c->cur_resp_pos >= reply.size()) {
+            // 写入完成
+            c->reply_list.pop_front();
+            zfree((void*)reply.data());
+            c->cur_resp_pos = 0;
+            RTC_LOG(LS_INFO) << "write finished, fd: " << c->fd << " worker_id: " << _worker_id;
+        } else {
+            // 还没写完
+            c->cur_resp_pos += nwritten;
+        }
+    }
+    c->last_interaction = _el->now(); // 表明该连接仍然活跃，避免超时关闭连接
+    if (c->reply_list.empty()) {
+        // 已经全部写完了
+        _el->stop_io_event(c->io_watcher, c->fd, EventLoop::WRITE);
+        RTC_LOG(LS_INFO) << "stop write event, fd: " << c->fd << ", worker_id: " << _worker_id;
     }
 }
 
@@ -324,13 +369,66 @@ int SignalingWorker::_process_push(int cmdno, TcpConnection* c, const Json::Valu
     msg->log_id = log_id;
     msg->worker = this;
     msg->conn = c;
+    msg->fd = c->fd;
 
     // 全局xrtc指针用于消息队列传送消息
     return g_rtc_server->send_rtc_msg(msg);
 }
 
 void SignalingWorker::_response_server_offer(std::shared_ptr<RtcMsg> msg) {
-    RTC_LOG(LS_WARNING) << "==========response server offer: " << msg->sdp;
+    auto c = static_cast<TcpConnection*>(msg->conn);
+    if (!c) {
+        return;
+    }
+
+    int fd = msg->fd;
+    if (fd <= 0 || static_cast<size_t>(fd) >= _conns.size()) {
+        return;
+    }
+
+    if (_conns[fd] != c) {
+        // 不为空且不相等，说明这是一个新建立的连接
+        return;
+    }
+
+    // 返回结果
+    // 构造响应头
+    xhead_t* xh = (xhead_t*)c->querybuf;
+    rtc::Slice header(c->querybuf, XHEAD_SIZE);
+    char* buf = (char*)zmalloc(XHEAD_SIZE + MAX_RES_BUF);
+    if (!buf) {
+        RTC_LOG(LS_WARNING) << "zmalloc error, log_id: " << xh->log_id;
+        return;
+    }
+
+    memcpy(buf, header.data(), header.size());
+    xhead_t* res_xh = (xhead_t*)buf;
+
+    Json::Value res_root;
+    res_root["err_no"] = msg->err_no;
+    if (msg->err_no != 0) {
+        res_root["err_msg"] = "process error";
+        res_root["offer"] = "";
+    } else {
+        res_root["err_msg"] = "success";
+        res_root["offer"] = msg->sdp;
+    }
+
+    Json::StreamWriterBuilder write_builder;
+    write_builder.settings_["indentation"] = "";
+    std::string json_data = Json::writeString(write_builder, res_root);
+    RTC_LOG(LS_INFO) << "response body: " << json_data;
+
+    res_xh->body_len = json_data.size();
+    snprintf(buf + XHEAD_SIZE, MAX_RES_BUF, "%s", json_data.c_str());
+
+    rtc::Slice reply(buf, XHEAD_SIZE + res_xh->body_len);
+    _add_reply(c, reply); // 通过事件触发的方式进行写入
+}
+
+void SignalingWorker::_add_reply(TcpConnection* c, const rtc::Slice& reply) {
+    c->reply_list.push_back(reply);
+    _el->start_io_event(c->io_watcher, c->fd, EventLoop::WRITE);
 }
 
 void SignalingWorker::_process_rtc_msg() {
