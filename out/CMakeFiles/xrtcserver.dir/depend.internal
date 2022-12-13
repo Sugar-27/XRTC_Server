@@ -398,6 +398,7 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o
 CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o
  ../../rtcbase/src/rtc_base/sds.h
  ../../rtcbase/src/rtc_base/slice.h
+ ../../rtcbase/src/rtc_base/zmalloc.h
  ../src/base/event_loop.h
  ../src/base/x_header.h
  ../src/server/tcp_connection.h
