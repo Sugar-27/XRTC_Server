@@ -258,6 +258,60 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/pc/peer_connection.o: src/pc/peer_connection.cpp.o
+
+.PHONY : src/pc/peer_connection.o
+
+# target to build an object file
+src/pc/peer_connection.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.o
+.PHONY : src/pc/peer_connection.cpp.o
+
+src/pc/peer_connection.i: src/pc/peer_connection.cpp.i
+
+.PHONY : src/pc/peer_connection.i
+
+# target to preprocess a source file
+src/pc/peer_connection.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.i
+.PHONY : src/pc/peer_connection.cpp.i
+
+src/pc/peer_connection.s: src/pc/peer_connection.cpp.s
+
+.PHONY : src/pc/peer_connection.s
+
+# target to generate assembly for a file
+src/pc/peer_connection.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.s
+.PHONY : src/pc/peer_connection.cpp.s
+
+src/pc/session_description.o: src/pc/session_description.cpp.o
+
+.PHONY : src/pc/session_description.o
+
+# target to build an object file
+src/pc/session_description.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/pc/session_description.cpp.o
+.PHONY : src/pc/session_description.cpp.o
+
+src/pc/session_description.i: src/pc/session_description.cpp.i
+
+.PHONY : src/pc/session_description.i
+
+# target to preprocess a source file
+src/pc/session_description.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/pc/session_description.cpp.i
+.PHONY : src/pc/session_description.cpp.i
+
+src/pc/session_description.s: src/pc/session_description.cpp.s
+
+.PHONY : src/pc/session_description.s
+
+# target to generate assembly for a file
+src/pc/session_description.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/pc/session_description.cpp.s
+.PHONY : src/pc/session_description.cpp.s
+
 src/server/rtc_server.o: src/server/rtc_server.cpp.o
 
 .PHONY : src/server/rtc_server.o
@@ -393,6 +447,87 @@ src/server/tcp_connection.cpp.s:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.s
 .PHONY : src/server/tcp_connection.cpp.s
 
+src/stream/push_stream.o: src/stream/push_stream.cpp.o
+
+.PHONY : src/stream/push_stream.o
+
+# target to build an object file
+src/stream/push_stream.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o
+.PHONY : src/stream/push_stream.cpp.o
+
+src/stream/push_stream.i: src/stream/push_stream.cpp.i
+
+.PHONY : src/stream/push_stream.i
+
+# target to preprocess a source file
+src/stream/push_stream.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.i
+.PHONY : src/stream/push_stream.cpp.i
+
+src/stream/push_stream.s: src/stream/push_stream.cpp.s
+
+.PHONY : src/stream/push_stream.s
+
+# target to generate assembly for a file
+src/stream/push_stream.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.s
+.PHONY : src/stream/push_stream.cpp.s
+
+src/stream/rtc_stream.o: src/stream/rtc_stream.cpp.o
+
+.PHONY : src/stream/rtc_stream.o
+
+# target to build an object file
+src/stream/rtc_stream.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.o
+.PHONY : src/stream/rtc_stream.cpp.o
+
+src/stream/rtc_stream.i: src/stream/rtc_stream.cpp.i
+
+.PHONY : src/stream/rtc_stream.i
+
+# target to preprocess a source file
+src/stream/rtc_stream.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.i
+.PHONY : src/stream/rtc_stream.cpp.i
+
+src/stream/rtc_stream.s: src/stream/rtc_stream.cpp.s
+
+.PHONY : src/stream/rtc_stream.s
+
+# target to generate assembly for a file
+src/stream/rtc_stream.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.s
+.PHONY : src/stream/rtc_stream.cpp.s
+
+src/stream/rtc_stream_manager.o: src/stream/rtc_stream_manager.cpp.o
+
+.PHONY : src/stream/rtc_stream_manager.o
+
+# target to build an object file
+src/stream/rtc_stream_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o
+.PHONY : src/stream/rtc_stream_manager.cpp.o
+
+src/stream/rtc_stream_manager.i: src/stream/rtc_stream_manager.cpp.i
+
+.PHONY : src/stream/rtc_stream_manager.i
+
+# target to preprocess a source file
+src/stream/rtc_stream_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.i
+.PHONY : src/stream/rtc_stream_manager.cpp.i
+
+src/stream/rtc_stream_manager.s: src/stream/rtc_stream_manager.cpp.s
+
+.PHONY : src/stream/rtc_stream_manager.s
+
+# target to generate assembly for a file
+src/stream/rtc_stream_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.s
+.PHONY : src/stream/rtc_stream_manager.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -417,6 +552,12 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/pc/peer_connection.o"
+	@echo "... src/pc/peer_connection.i"
+	@echo "... src/pc/peer_connection.s"
+	@echo "... src/pc/session_description.o"
+	@echo "... src/pc/session_description.i"
+	@echo "... src/pc/session_description.s"
 	@echo "... src/server/rtc_server.o"
 	@echo "... src/server/rtc_server.i"
 	@echo "... src/server/rtc_server.s"
@@ -432,6 +573,15 @@ help:
 	@echo "... src/server/tcp_connection.o"
 	@echo "... src/server/tcp_connection.i"
 	@echo "... src/server/tcp_connection.s"
+	@echo "... src/stream/push_stream.o"
+	@echo "... src/stream/push_stream.i"
+	@echo "... src/stream/push_stream.s"
+	@echo "... src/stream/rtc_stream.o"
+	@echo "... src/stream/rtc_stream.i"
+	@echo "... src/stream/rtc_stream.s"
+	@echo "... src/stream/rtc_stream_manager.o"
+	@echo "... src/stream/rtc_stream_manager.i"
+	@echo "... src/stream/rtc_stream_manager.s"
 .PHONY : help
 
 

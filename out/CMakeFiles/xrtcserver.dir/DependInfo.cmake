@@ -9,11 +9,16 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sugar/project/cpp/xrtcserver/src/base/log.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/log.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/base/socket.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/main.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/main.cpp.o"
+  "/home/sugar/project/cpp/xrtcserver/src/pc/peer_connection.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.o"
+  "/home/sugar/project/cpp/xrtcserver/src/pc/session_description.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/pc/session_description.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/server/rtc_server.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/server/rtc_worker.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/server/signaling_server.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/server/signaling_worker.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/server/tcp_connection.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o"
+  "/home/sugar/project/cpp/xrtcserver/src/stream/push_stream.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o"
+  "/home/sugar/project/cpp/xrtcserver/src/stream/rtc_stream.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.o"
+  "/home/sugar/project/cpp/xrtcserver/src/stream/rtc_stream_manager.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

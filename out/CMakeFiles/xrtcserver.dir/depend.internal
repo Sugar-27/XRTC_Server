@@ -143,6 +143,14 @@ CMakeFiles/xrtcserver.dir/src/main.cpp.o
  /home/sugar/project/cpp/xrtcserver/src/main.cpp
  /home/sugar/project/cpp/xrtcserver/src/server/rtc_server.h
  /home/sugar/project/cpp/xrtcserver/src/server/signaling_server.h
+CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.o
+ ../src/base/event_loop.h
+ ../src/pc/peer_connection.h
+ ../src/pc/session_description.h
+ /home/sugar/project/cpp/xrtcserver/src/pc/peer_connection.cpp
+CMakeFiles/xrtcserver.dir/src/pc/session_description.cpp.o
+ ../src/pc/session_description.h
+ /home/sugar/project/cpp/xrtcserver/src/pc/session_description.cpp
 CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o
  ../../rtcbase/src/api/array_view.h
  ../../rtcbase/src/rtc_base/checks.h
@@ -158,8 +166,13 @@ CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o
  ../../rtcbase/src/rtc_base/type_traits.h
  ../src/base/event_loop.h
  ../src/base/lock_free_queue.h
+ ../src/pc/peer_connection.h
+ ../src/pc/session_description.h
  ../src/server/rtc_server.h
  ../src/server/rtc_worker.h
+ ../src/stream/push_stream.h
+ ../src/stream/rtc_stream.h
+ ../src/stream/rtc_stream_manager.h
  ../src/xrtcserver_def.h
  ../third_part/include/absl/base/attributes.h
  ../third_part/include/absl/base/config.h
@@ -228,11 +241,16 @@ CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o
  ../src/base/event_loop.h
  ../src/base/lock_free_queue.h
  ../src/base/x_header.h
+ ../src/pc/peer_connection.h
+ ../src/pc/session_description.h
  ../src/server/rtc_server.h
  ../src/server/rtc_worker.h
  ../src/server/signaling_server.h
  ../src/server/signaling_worker.h
  ../src/server/tcp_connection.h
+ ../src/stream/push_stream.h
+ ../src/stream/rtc_stream.h
+ ../src/stream/rtc_stream_manager.h
  ../src/xrtcserver_def.h
  ../third_part/include/absl/base/attributes.h
  ../third_part/include/absl/base/config.h
@@ -403,3 +421,24 @@ CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o
  ../src/base/x_header.h
  ../src/server/tcp_connection.h
  /home/sugar/project/cpp/xrtcserver/src/server/tcp_connection.cpp
+CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o
+ ../src/base/event_loop.h
+ ../src/pc/peer_connection.h
+ ../src/pc/session_description.h
+ ../src/stream/push_stream.h
+ ../src/stream/rtc_stream.h
+ /home/sugar/project/cpp/xrtcserver/src/stream/push_stream.cpp
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.o
+ ../src/base/event_loop.h
+ ../src/pc/peer_connection.h
+ ../src/pc/session_description.h
+ ../src/stream/rtc_stream.h
+ /home/sugar/project/cpp/xrtcserver/src/stream/rtc_stream.cpp
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o
+ ../src/base/event_loop.h
+ ../src/pc/peer_connection.h
+ ../src/pc/session_description.h
+ ../src/stream/push_stream.h
+ ../src/stream/rtc_stream.h
+ ../src/stream/rtc_stream_manager.h
+ /home/sugar/project/cpp/xrtcserver/src/stream/rtc_stream_manager.cpp

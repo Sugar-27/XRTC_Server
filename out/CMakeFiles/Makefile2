@@ -74,12 +74,12 @@ clean: CMakeFiles/xrtcserver.dir/clean
 CMakeFiles/xrtcserver.dir/all:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/depend
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target xrtcserver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sugar/project/cpp/xrtcserver/out/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 "Built target xrtcserver"
 .PHONY : CMakeFiles/xrtcserver.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/xrtcserver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sugar/project/cpp/xrtcserver/out/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sugar/project/cpp/xrtcserver/out/CMakeFiles 16
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/xrtcserver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/sugar/project/cpp/xrtcserver/out/CMakeFiles 0
 .PHONY : CMakeFiles/xrtcserver.dir/rule

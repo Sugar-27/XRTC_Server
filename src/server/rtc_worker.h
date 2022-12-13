@@ -9,6 +9,7 @@
 #include "base/event_loop.h"
 #include "base/lock_free_queue.h"
 #include "server/rtc_server.h"
+#include "stream/rtc_stream_manager.h"
 #include <memory>
 #include <thread>
 namespace xrtc {
@@ -43,10 +44,14 @@ class RtcWorker {
     RtcServerOptions _options;
     EventLoop* _el;
     IOWatcher* _pipe_watcher = nullptr;
+
     int _notify_recv_fd = -1;
     int _notify_send_fd = -1;
+
     std::thread* _thread = nullptr;
     LockFreeQueue<std::shared_ptr<RtcMsg>> _q_msg;
+    
+    std::unique_ptr<RtcStreamManager> _rtc_stream_manager;
 };
 } // namespace xrtc
 

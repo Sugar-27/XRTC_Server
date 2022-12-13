@@ -143,6 +143,14 @@ CMakeFiles/xrtcserver.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/xrtcserver.dir/src/main.cpp.o: ../src/server/rtc_server.h
 CMakeFiles/xrtcserver.dir/src/main.cpp.o: ../src/server/signaling_server.h
 
+CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.o: ../src/base/event_loop.h
+CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.o: ../src/pc/peer_connection.h
+CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.o: ../src/pc/session_description.h
+CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.o: ../src/pc/peer_connection.cpp
+
+CMakeFiles/xrtcserver.dir/src/pc/session_description.cpp.o: ../src/pc/session_description.h
+CMakeFiles/xrtcserver.dir/src/pc/session_description.cpp.o: ../src/pc/session_description.cpp
+
 CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../../rtcbase/src/api/array_view.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../../rtcbase/src/rtc_base/checks.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../../rtcbase/src/rtc_base/constructor_magic.h
@@ -157,8 +165,13 @@ CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../../rtcbase/src/rtc_bas
 CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../../rtcbase/src/rtc_base/type_traits.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../src/base/event_loop.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../src/base/lock_free_queue.h
+CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../src/pc/peer_connection.h
+CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../src/pc/session_description.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../src/server/rtc_server.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../src/server/rtc_worker.h
+CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../src/stream/push_stream.h
+CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../src/stream/rtc_stream.h
+CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../src/stream/rtc_stream_manager.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../src/xrtcserver_def.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../third_part/include/absl/base/attributes.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o: ../third_part/include/absl/base/config.h
@@ -227,11 +240,16 @@ CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../../rtcbase/src/rtc_bas
 CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/base/event_loop.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/base/lock_free_queue.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/base/x_header.h
+CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/pc/peer_connection.h
+CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/pc/session_description.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/server/rtc_server.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/server/rtc_worker.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/server/signaling_server.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/server/signaling_worker.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/server/tcp_connection.h
+CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/stream/push_stream.h
+CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/stream/rtc_stream.h
+CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/stream/rtc_stream_manager.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../src/xrtcserver_def.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../third_part/include/absl/base/attributes.h
 CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o: ../third_part/include/absl/base/config.h
@@ -402,4 +420,25 @@ CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../src/base/event_loo
 CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../src/base/x_header.h
 CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../src/server/tcp_connection.h
 CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o: ../src/server/tcp_connection.cpp
+
+CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o: ../src/base/event_loop.h
+CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o: ../src/pc/peer_connection.h
+CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o: ../src/pc/session_description.h
+CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o: ../src/stream/push_stream.h
+CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o: ../src/stream/rtc_stream.h
+CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o: ../src/stream/push_stream.cpp
+
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.o: ../src/base/event_loop.h
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.o: ../src/pc/peer_connection.h
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.o: ../src/pc/session_description.h
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.o: ../src/stream/rtc_stream.h
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.o: ../src/stream/rtc_stream.cpp
+
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o: ../src/base/event_loop.h
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o: ../src/pc/peer_connection.h
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o: ../src/pc/session_description.h
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o: ../src/stream/push_stream.h
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o: ../src/stream/rtc_stream.h
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o: ../src/stream/rtc_stream_manager.h
+CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o: ../src/stream/rtc_stream_manager.cpp
 
