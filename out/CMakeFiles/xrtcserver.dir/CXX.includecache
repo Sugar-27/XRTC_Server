@@ -7,7 +7,11 @@
 #IncludeRegexTransform: 
 
 ../src/pc/codec_info.h
+map
+-
 string
+-
+vector
 -
 
 ../src/pc/session_description.h

@@ -23,6 +23,13 @@ AudioContentDescription::AudioContentDescription() {
     codec->clockrate = 48000;
     codec->channels = 2;
 
+    // add feedback param
+    codec->feedback_param.push_back(FeedbackParam("transport-cc"));
+
+    // add codec param
+    codec->codec_param["minptime"] = "10";
+    codec->codec_param["useinbandfec"] = "1";
+
     _codecs.push_back(codec);
 }
 
@@ -32,11 +39,26 @@ VideoContentDescription::VideoContentDescription() {
     codec->name = "H264";
     codec->clockrate = 90000;
 
+    // add feedback param
+    codec->feedback_param.push_back(FeedbackParam("goog-remb"));
+    codec->feedback_param.push_back(FeedbackParam("transport-cc"));
+    codec->feedback_param.push_back(FeedbackParam("ccm", "fir"));
+    codec->feedback_param.push_back(FeedbackParam("nack"));
+    codec->feedback_param.push_back(FeedbackParam("nack", "pli"));
+
+    // add codec param
+    codec->codec_param["level-asymmetry-allowed"] = "1";
+    codec->codec_param["packetization-mode"] = "1";
+    codec->codec_param["profile-level-id"] = "42e01";
+
     // rtx包用于重传
     auto rtx_codec = std::make_shared<VideoCodecInfo>();
     rtx_codec->id = 99;
     rtx_codec->name = "rtx";
     rtx_codec->clockrate = 90000;
+
+    // add codec param
+    rtx_codec->codec_param["apt"] = std::to_string(codec->id);
 
     _codecs.push_back(codec);
     _codecs.push_back(rtx_codec);
@@ -60,6 +82,43 @@ bool ContentGroup::has_content_name(const std::string& content_name) {
 SessionDescription::SessionDescription(SdpType type) : _sdp_type(type) {}
 
 SessionDescription::~SessionDescription() {}
+
+static void add_rtcp_fb_line(std::shared_ptr<CodecInfo> codec, std::stringstream& ss) {
+    for (auto param : codec->feedback_param) {
+        ss << "a=rtcp-fd:" << codec->id << " " << param.id();
+        if (!param.param().empty()) {
+            ss << " " << param.param();
+        }
+        ss << "\r\n";
+    }
+}
+
+static void add_fmtpp_line(std::shared_ptr<CodecInfo> codec, std::stringstream& ss) {
+    if (!codec->codec_param.empty()) {
+        ss << "a=fmtp:" << codec->id << " ";
+        std::string data;
+        for (auto param : codec->codec_param) {
+            data += (";" + param.first + "=" + param.second);
+        }
+        // data = ";key1=value1;key2=value2"
+        data = data.substr(1);
+        ss << data << "\r\n";
+    }
+}
+
+static void build_rtp_map(std::shared_ptr<MediaContentDescription> content, std::stringstream& ss) {
+    for (auto codec : content->get_codecs()) {
+        ss << "a=rtpmap:" << codec->id << " " << codec->name << "/" << codec->clockrate;
+        if (content->type() == MediaType::MEDIA_TYPE_AUDIO) {
+            auto audio_codec = codec->as_audio();
+            ss << "/" << audio_codec->channels;
+        }
+        ss << "\r\n";
+
+        add_rtcp_fb_line(codec, ss);
+        add_fmtpp_line(codec, ss);
+    }
+}
 
 std::string SessionDescription::to_string() {
     std::stringstream ss;
@@ -100,6 +159,8 @@ std::string SessionDescription::to_string() {
             // 写死
             ss << "c=IN IP4 0.0.0.0\r\n";
             ss << "a=rtcp:9 IN IP4 0.0.0.0\r\n";
+
+            build_rtp_map(content, ss);
         }
     }
 
