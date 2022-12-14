@@ -6,10 +6,42 @@
 
 #include "pc/session_description.h"
 
+#include "pc/codec_info.h"
+
+#include <memory>
 #include <sstream>
 #include <string>
 #include <vector>
 namespace xrtc {
+const char k_media_protocol_dtls_savpf[] = "UDP/TLS/RTP/SAVPF"; // 加密
+const char k_media_protocol_savpf[] = "RTP/SAVPF";              // 不加密
+
+AudioContentDescription::AudioContentDescription() {
+    auto codec = std::make_shared<AudioCodecInfo>();
+    codec->id = 111;
+    codec->name = "opus";
+    codec->clockrate = 48000;
+    codec->channels = 2;
+
+    _codecs.push_back(codec);
+}
+
+VideoContentDescription::VideoContentDescription() {
+    auto codec = std::make_shared<VideoCodecInfo>();
+    codec->id = 107;
+    codec->name = "H264";
+    codec->clockrate = 90000;
+
+    // rtx包用于重传
+    auto rtx_codec = std::make_shared<VideoCodecInfo>();
+    rtx_codec->id = 99;
+    rtx_codec->name = "rtx";
+    rtx_codec->clockrate = 90000;
+
+    _codecs.push_back(codec);
+    _codecs.push_back(rtx_codec);
+}
+
 void ContentGroup::add_content_name(const std::string& content_name) {
     if (!has_content_name(content_name)) {
         _content_names.push_back(content_name);
@@ -40,7 +72,7 @@ std::string SessionDescription::to_string() {
     // session name
     ss << "s=-\r\n";
     // time description
-    ss << "t = 0 0\r\n";
+    ss << "t=0 0\r\n";
 
     // BUNDLE
     auto content_group = get_group_by_name("BUNDLE");
@@ -52,6 +84,23 @@ std::string SessionDescription::to_string() {
             }
         }
         ss << "\r\n";
+        // 写死
+        ss << "a=msid-semantic: WMS\r\n";
+        // RFC 4566
+        // m=<media> <port> <proto> <fmt>
+        for (auto content : _contents) {
+            std::string fmt;
+            for (auto codec : content->get_codecs()) {
+                fmt.append(" ");
+                fmt.append(std::to_string(codec->id));
+            }
+
+            ss << "m=" << content->mid() << " 9 " << k_media_protocol_dtls_savpf << fmt << "\r\n";
+
+            // 写死
+            ss << "c=IN IP4 0.0.0.0\r\n";
+            ss << "a=rtcp:9 IN IP4 0.0.0.0\r\n";
+        }
     }
 
     return ss.str();
@@ -59,9 +108,7 @@ std::string SessionDescription::to_string() {
 
 void SessionDescription::add_content(std::shared_ptr<MediaContentDescription> content) { _contents.push_back(content); }
 
-void SessionDescription::add_group(const ContentGroup& group) {
-    _content_groups.push_back(group);
-}
+void SessionDescription::add_group(const ContentGroup& group) { _content_groups.push_back(group); }
 
 std::vector<const ContentGroup*> SessionDescription::get_group_by_name(const std::string& name) const {
     std::vector<const ContentGroup*> content_groups;
