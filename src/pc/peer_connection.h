@@ -8,15 +8,21 @@
 
 #include "base/event_loop.h"
 #include "pc/session_description.h"
+
 #include <memory>
 #include <string>
 namespace xrtc {
+struct RtcOfferAnswerOptions {
+    bool recv_audio = true;
+    bool recv_video = true;
+};
+
 class PeerConnection {
   public:
     PeerConnection(EventLoop* el);
     ~PeerConnection();
 
-    std::string create_offer();
+    std::string create_offer(const RtcOfferAnswerOptions& options);
 
   private:
     EventLoop* _el;

@@ -5,6 +5,7 @@
  */
 #include "stream/push_stream.h"
 
+#include "pc/peer_connection.h"
 #include "stream/rtc_stream.h"
 namespace xrtc {
 PushStream::PushStream(
@@ -14,6 +15,9 @@ PushStream::PushStream(
 PushStream::~PushStream() {}
 
 std::string PushStream::create_offer() {
-    return pc->create_offer();
+    RtcOfferAnswerOptions options;
+    options.recv_audio = audio;
+    options.recv_video = video;
+    return pc->create_offer(options);
 }
 } // namespace xrtc

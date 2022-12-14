@@ -6,11 +6,34 @@
 #ifndef __SESSION_DESCRIPTION_H
 #define __SESSION_DESCRIPTION_H
 
+#include <memory>
 #include <string>
+#include <vector>
 namespace xrtc {
 enum class SdpType {
     k_offer = 0,
-    k_answer = -1,
+    k_answer = 1,
+};
+
+enum class MediaType { MEDIA_TYPE_AUDIO, MEDIA_TYPE_VIDEO };
+
+class MediaContentDescription {
+  public:
+    virtual ~MediaContentDescription() {}
+    virtual MediaType type() = 0;
+    virtual std::string mid() = 0;
+};
+
+class AudioContentDescription : public MediaContentDescription {
+  public:
+    MediaType type() override { return MediaType::MEDIA_TYPE_AUDIO; }
+    std::string mid() override { return "audio"; }
+};
+
+class VideoContentDescription : public MediaContentDescription {
+  public:
+    MediaType type() override { return MediaType::MEDIA_TYPE_VIDEO; }
+    std::string mid() override { return "video"; }
 };
 
 class SessionDescription {
@@ -19,9 +42,11 @@ class SessionDescription {
     ~SessionDescription();
 
     std::string to_string();
+    void add_content(std::shared_ptr<MediaContentDescription> content);
 
   private:
     SdpType _sdp_type;
+    std::vector<std::shared_ptr<MediaContentDescription>> _contents;
 };
 } // namespace xrtc
 
