@@ -36,6 +36,21 @@ class VideoContentDescription : public MediaContentDescription {
     std::string mid() override { return "video"; }
 };
 
+class ContentGroup {
+  public:
+    ContentGroup(const std::string& semantics) : _semantics(semantics) {}
+    ~ContentGroup() {}
+
+    std::string semantics() const { return _semantics; }
+    const std::vector<std::string>& content_names() const { return _content_names; }
+    void add_content_name(const std::string& content_name);
+    bool has_content_name(const std::string& content_name);
+
+  private:
+    std::string _semantics;
+    std::vector<std::string> _content_names;
+};
+
 class SessionDescription {
   public:
     SessionDescription(SdpType type);
@@ -43,10 +58,14 @@ class SessionDescription {
 
     std::string to_string();
     void add_content(std::shared_ptr<MediaContentDescription> content);
+    void add_group(const ContentGroup& group);
+    const std::vector<std::shared_ptr<MediaContentDescription>>& contents() const { return _contents; }
+    std::vector<const ContentGroup*> get_group_by_name(const std::string& name) const;
 
   private:
     SdpType _sdp_type;
     std::vector<std::shared_ptr<MediaContentDescription>> _contents;
+    std::vector<ContentGroup> _content_groups;
 };
 } // namespace xrtc
 
