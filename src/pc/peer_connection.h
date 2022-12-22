@@ -13,9 +13,12 @@
 #include <string>
 namespace xrtc {
 struct RtcOfferAnswerOptions {
+    bool send_audio = true;
+    bool send_video = true;
     bool recv_audio = true;
     bool recv_video = true;
     bool use_rtp_mux = true;
+    bool use_rtcp_mux = true;
 };
 
 class PeerConnection {

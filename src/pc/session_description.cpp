@@ -120,6 +120,23 @@ static void build_rtp_map(std::shared_ptr<MediaContentDescription> content, std:
     }
 }
 
+static void build_rtp_direction(std::shared_ptr<MediaContentDescription> content, std::stringstream& ss) {
+    switch (content->direction()) {
+    case RtpDirection::k_send_recv:
+        ss << "a=sendrecv\r\n";
+        break;
+    case RtpDirection::k_send_only:
+        ss << "a=sendonly\r\n";
+        break;
+    case RtpDirection::k_recv_only:
+        ss << "a=recvonly\r\n";
+        break;
+    case RtpDirection::k_inactive:
+        ss << "a=inactive\r\n";
+        break;
+    }
+}
+
 std::string SessionDescription::to_string() {
     std::stringstream ss;
     // 第一行：version
@@ -160,6 +177,12 @@ std::string SessionDescription::to_string() {
             ss << "c=IN IP4 0.0.0.0\r\n";
             ss << "a=rtcp:9 IN IP4 0.0.0.0\r\n";
 
+            ss << "a=mid:" << content->mid() << "\r\n";
+
+            if (content->rtcp_mux()) {
+                ss << "a=rtcp-mux\r\n";
+            }
+            build_rtp_direction(content, ss);
             build_rtp_map(content, ss);
         }
     }
