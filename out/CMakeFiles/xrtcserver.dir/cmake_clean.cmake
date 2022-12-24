@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.o"
   "CMakeFiles/xrtcserver.dir/src/base/log.cpp.o"
   "CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o"
+  "CMakeFiles/xrtcserver.dir/src/ice/ice_credentials.cpp.o"
+  "CMakeFiles/xrtcserver.dir/src/ice/ice_def.cpp.o"
   "CMakeFiles/xrtcserver.dir/src/main.cpp.o"
   "CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.o"
   "CMakeFiles/xrtcserver.dir/src/pc/session_description.cpp.o"

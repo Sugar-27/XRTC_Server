@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sugar/project/cpp/xrtcserver/src/base/event_loop.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/base/log.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/log.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/base/socket.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o"
+  "/home/sugar/project/cpp/xrtcserver/src/ice/ice_credentials.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/ice/ice_credentials.cpp.o"
+  "/home/sugar/project/cpp/xrtcserver/src/ice/ice_def.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/ice/ice_def.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/main.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/main.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/pc/peer_connection.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/pc/session_description.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/pc/session_description.cpp.o"

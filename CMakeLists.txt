@@ -21,6 +21,7 @@ file(GLOB all_src
     "./src/server/*.cpp"
     "./src/stream/*.cpp"
     "./src/pc/*.cpp"
+    "./src/ice/*.cpp"
 )
 
 add_executable(xrtcserver ${all_src})
@@ -28,10 +29,12 @@ add_executable(xrtcserver ${all_src})
 target_link_libraries(
     xrtcserver 
     libyaml-cpp.a 
-    librtcbase.a 
-    -lpthread 
+    librtcbase.a  
     libabsl_strings.a 
     libabsl_throw_delegate.a 
     libev.a
     libjsoncpp.a
+    libcrypto.a
+    -lpthread
+    -ldl
 )

@@ -106,6 +106,15 @@ CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o
  ../third_part/include/absl/types/optional.h
  ../third_part/include/absl/utility/utility.h
  /home/sugar/project/cpp/xrtcserver/src/base/socket.cpp
+CMakeFiles/xrtcserver.dir/src/ice/ice_credentials.cpp.o
+ ../../rtcbase/src/rtc_base/helpers.h
+ ../../rtcbase/src/rtc_base/system/rtc_export.h
+ ../src/ice/ice_credentials.h
+ ../src/ice/ice_def.h
+ /home/sugar/project/cpp/xrtcserver/src/ice/ice_credentials.cpp
+CMakeFiles/xrtcserver.dir/src/ice/ice_def.cpp.o
+ ../src/ice/ice_def.h
+ /home/sugar/project/cpp/xrtcserver/src/ice/ice_def.cpp
 CMakeFiles/xrtcserver.dir/src/main.cpp.o
  ../../rtcbase/src/api/array_view.h
  ../../rtcbase/src/rtc_base/checks.h
@@ -145,11 +154,13 @@ CMakeFiles/xrtcserver.dir/src/main.cpp.o
  /home/sugar/project/cpp/xrtcserver/src/server/signaling_server.h
 CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.o
  ../src/base/event_loop.h
+ ../src/ice/ice_credentials.h
  ../src/pc/codec_info.h
  ../src/pc/peer_connection.h
  ../src/pc/session_description.h
  /home/sugar/project/cpp/xrtcserver/src/pc/peer_connection.cpp
 CMakeFiles/xrtcserver.dir/src/pc/session_description.cpp.o
+ ../src/ice/ice_credentials.h
  ../src/pc/codec_info.h
  ../src/pc/session_description.h
  /home/sugar/project/cpp/xrtcserver/src/pc/session_description.cpp
@@ -168,6 +179,7 @@ CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o
  ../../rtcbase/src/rtc_base/type_traits.h
  ../src/base/event_loop.h
  ../src/base/lock_free_queue.h
+ ../src/ice/ice_credentials.h
  ../src/pc/codec_info.h
  ../src/pc/peer_connection.h
  ../src/pc/session_description.h
@@ -244,6 +256,7 @@ CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o
  ../src/base/event_loop.h
  ../src/base/lock_free_queue.h
  ../src/base/x_header.h
+ ../src/ice/ice_credentials.h
  ../src/pc/codec_info.h
  ../src/pc/peer_connection.h
  ../src/pc/session_description.h
@@ -427,6 +440,7 @@ CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o
  /home/sugar/project/cpp/xrtcserver/src/server/tcp_connection.cpp
 CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o
  ../src/base/event_loop.h
+ ../src/ice/ice_credentials.h
  ../src/pc/codec_info.h
  ../src/pc/peer_connection.h
  ../src/pc/session_description.h
@@ -435,6 +449,7 @@ CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o
  /home/sugar/project/cpp/xrtcserver/src/stream/push_stream.cpp
 CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.o
  ../src/base/event_loop.h
+ ../src/ice/ice_credentials.h
  ../src/pc/codec_info.h
  ../src/pc/peer_connection.h
  ../src/pc/session_description.h
@@ -442,6 +457,7 @@ CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.o
  /home/sugar/project/cpp/xrtcserver/src/stream/rtc_stream.cpp
 CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o
  ../src/base/event_loop.h
+ ../src/ice/ice_credentials.h
  ../src/pc/codec_info.h
  ../src/pc/peer_connection.h
  ../src/pc/session_description.h

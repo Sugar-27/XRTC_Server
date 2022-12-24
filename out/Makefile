@@ -231,6 +231,60 @@ src/base/socket.cpp.s:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/base/socket.cpp.s
 .PHONY : src/base/socket.cpp.s
 
+src/ice/ice_credentials.o: src/ice/ice_credentials.cpp.o
+
+.PHONY : src/ice/ice_credentials.o
+
+# target to build an object file
+src/ice/ice_credentials.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_credentials.cpp.o
+.PHONY : src/ice/ice_credentials.cpp.o
+
+src/ice/ice_credentials.i: src/ice/ice_credentials.cpp.i
+
+.PHONY : src/ice/ice_credentials.i
+
+# target to preprocess a source file
+src/ice/ice_credentials.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_credentials.cpp.i
+.PHONY : src/ice/ice_credentials.cpp.i
+
+src/ice/ice_credentials.s: src/ice/ice_credentials.cpp.s
+
+.PHONY : src/ice/ice_credentials.s
+
+# target to generate assembly for a file
+src/ice/ice_credentials.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_credentials.cpp.s
+.PHONY : src/ice/ice_credentials.cpp.s
+
+src/ice/ice_def.o: src/ice/ice_def.cpp.o
+
+.PHONY : src/ice/ice_def.o
+
+# target to build an object file
+src/ice/ice_def.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_def.cpp.o
+.PHONY : src/ice/ice_def.cpp.o
+
+src/ice/ice_def.i: src/ice/ice_def.cpp.i
+
+.PHONY : src/ice/ice_def.i
+
+# target to preprocess a source file
+src/ice/ice_def.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_def.cpp.i
+.PHONY : src/ice/ice_def.cpp.i
+
+src/ice/ice_def.s: src/ice/ice_def.cpp.s
+
+.PHONY : src/ice/ice_def.s
+
+# target to generate assembly for a file
+src/ice/ice_def.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_def.cpp.s
+.PHONY : src/ice/ice_def.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -549,6 +603,12 @@ help:
 	@echo "... src/base/socket.o"
 	@echo "... src/base/socket.i"
 	@echo "... src/base/socket.s"
+	@echo "... src/ice/ice_credentials.o"
+	@echo "... src/ice/ice_credentials.i"
+	@echo "... src/ice/ice_credentials.s"
+	@echo "... src/ice/ice_def.o"
+	@echo "... src/ice/ice_def.i"
+	@echo "... src/ice/ice_def.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
