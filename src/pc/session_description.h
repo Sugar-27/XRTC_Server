@@ -8,6 +8,8 @@
 
 #include "ice/ice_credentials.h"
 #include "pc/codec_info.h"
+#include "rtc_base/rtc_certificate.h"
+#include "rtc_base/ssl_fingerprint.h"
 
 #include <memory>
 #include <string>
@@ -70,11 +72,15 @@ class ContentGroup {
     std::vector<std::string> _content_names;
 };
 
+enum ConnectionRole { NONE = 0, ACTIVE, PASSIVE, ACTPASS, HOLDCONN };
+
 class TransportDescription {
-public:
+  public:
     std::string mid;
     std::string ice_ufrag;
     std::string ice_pwd;
+    std::unique_ptr<rtc::SSLFingerprint> identity_fingerprint;
+    ConnectionRole connection_role = ConnectionRole::NONE;
 };
 
 class SessionDescription {
@@ -87,7 +93,7 @@ class SessionDescription {
     void add_group(const ContentGroup& group);
     const std::vector<std::shared_ptr<MediaContentDescription>>& contents() const { return _contents; }
     std::vector<const ContentGroup*> get_group_by_name(const std::string& name) const;
-    bool add_transport_info(const std::string& mid, const IceParameters& ice_param);
+    bool add_transport_info(const std::string& mid, const IceParameters& ice_param, rtc::RTCCertificate* certificate);
     std::shared_ptr<TransportDescription> get_transport_info(const std::string& mid);
 
   private:

@@ -8,6 +8,7 @@
 
 #include "base/event_loop.h"
 #include "pc/session_description.h"
+#include "rtc_base/rtc_certificate.h"
 
 #include <memory>
 #include <string>
@@ -19,6 +20,7 @@ struct RtcOfferAnswerOptions {
     bool recv_video = true;
     bool use_rtp_mux = true;
     bool use_rtcp_mux = true;
+    bool dtls_on = true;
 };
 
 class PeerConnection {
@@ -27,11 +29,12 @@ class PeerConnection {
     ~PeerConnection();
 
     std::string create_offer(const RtcOfferAnswerOptions& options);
+    int init(rtc::RTCCertificate* certificate);
 
   private:
     EventLoop* _el;
-
     std::unique_ptr<SessionDescription> _local_desc;
+    rtc::RTCCertificate* _certificate = nullptr;
 };
 } // namespace xrtc
 

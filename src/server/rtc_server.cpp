@@ -6,16 +6,19 @@
 #include "server/rtc_server.h"
 
 #include "base/event_loop.h"
-#include "rtc_base/logging.h"
 #include "rtc_base/crc32.h"
-#include "xrtcserver_def.h"
+#include "rtc_base/logging.h"
+#include "rtc_base/rtc_certificate.h"
+#include "rtc_base/rtc_certificate_generator.h"
 #include "server/rtc_worker.h"
+#include "xrtcserver_def.h"
 #include "yaml-cpp/yaml.h"
 
 #include <cerrno>
 #include <cstddef>
 #include <cstdint>
 #include <cstring>
+#include <ctime>
 #include <memory>
 #include <mutex>
 #include <string>
@@ -24,6 +27,8 @@
 #include <unistd.h>
 
 namespace xrtc {
+const u_int64_t k_year_in_ms = 365 * 24 * 3600 * 1000l;
+
 void rtc_server_recv_notify(EventLoop* /*el*/, IOWatcher* /*w*/, int fd, int /*event*/, void* data) {
     int msg;
     if (read(fd, &msg, sizeof(int)) != sizeof(int)) {
@@ -49,7 +54,7 @@ RtcServer::~RtcServer() {
 
     for (auto worker : _workers) {
         if (worker) {
-            delete worker;   
+            delete worker;
         }
     }
     _workers.clear();
@@ -67,6 +72,11 @@ int RtcServer::init(const char* conf_file) {
         _options.worker_num = config["worker_num"].as<int>();
     } catch (const YAML::Exception& e) {
         RTC_LOG(LS_WARNING) << "rtc server load conf file error: " << e.msg;
+        return -1;
+    }
+
+    // 生成证书
+    if (_generate_and_check_certificate() != 0) {
         return -1;
     }
 
@@ -104,9 +114,7 @@ bool RtcServer::start() {
     return true;
 }
 
-void RtcServer::stop() {
-    notify(QUIT);
-}
+void RtcServer::stop() { notify(QUIT); }
 
 int RtcServer::notify(int msg) {
     int written = write(_notify_send_fd, &msg, sizeof(int));
@@ -131,7 +139,8 @@ void RtcServer::push_msg(std::shared_ptr<RtcMsg> msg) {
 
 std::shared_ptr<RtcMsg> RtcServer::pop_msg() {
     std::unique_lock<std::mutex> lock(_q_msg_mtx);
-    if (_q_msg.empty()) return nullptr;
+    if (_q_msg.empty())
+        return nullptr;
     auto msg = _q_msg.front();
     _q_msg.pop();
     return msg;
@@ -166,13 +175,18 @@ void RtcServer::_process_rtc_msg() {
         return;
     }
 
+    if (_generate_and_check_certificate() != 0) {
+        return;
+    }
+
+    msg->certificate = _certificate.get();
+
     RtcWorker* worker = _get_worker(msg->stream_name);
     if (worker) {
         worker->send_rtc_msg(msg);
     }
 
     RTC_LOG(LS_WARNING) << "===========chdno: " << msg->cmdno << ", uid: " << msg->uid;
-
 }
 
 void RtcServer::_stop() {
@@ -203,6 +217,24 @@ int RtcServer::_create_worker(int worker_id) {
 
     _workers.push_back(worker);
 
+    return 0;
+}
+
+int RtcServer::_generate_and_check_certificate() {
+    if (!_certificate || _certificate->HasExpired(time(nullptr) * 1000)) {
+        rtc::KeyParams key_params;
+        RTC_LOG(LS_INFO) << "dtls enabled, key type: " << key_params.type();
+        _certificate = rtc::RTCCertificateGenerator::GenerateCertificate(key_params, k_year_in_ms);
+        if (_certificate) {
+            rtc::RTCCertificatePEM pem = _certificate->ToPEM();
+            RTC_LOG(LS_INFO) << "rtc certificate: \n" << pem.certificate();
+        }
+    }
+
+    if (!_certificate) {
+        RTC_LOG(LS_WARNING) << "get certificate error";
+        return -1;
+    }
     return 0;
 }
 } // namespace xrtc

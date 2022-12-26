@@ -7,6 +7,7 @@
 #define __RTC_SERVER_H
 
 #include "base/event_loop.h"
+#include "rtc_base/rtc_certificate.h"
 #include "xrtcserver_def.h"
 
 #include <memory>
@@ -47,6 +48,7 @@ class RtcServer {
     void _stop();
     int _create_worker(int worker_id);
     RtcWorker* _get_worker(const std::string& stream_name);
+    int _generate_and_check_certificate();
 
   private:
     EventLoop* _el;
@@ -56,6 +58,7 @@ class RtcServer {
     std::queue<std::shared_ptr<RtcMsg>> _q_msg;
     std::mutex _q_msg_mtx;
     std::vector<RtcWorker*> _workers;
+    rtc::scoped_refptr<rtc::RTCCertificate> _certificate;
 
     IOWatcher* _pipe_watcher = nullptr;
     int _notify_recv_fd = -1;

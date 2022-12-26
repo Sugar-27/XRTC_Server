@@ -117,10 +117,15 @@ CMakeFiles/xrtcserver.dir/src/ice/ice_def.cpp.o
  /home/sugar/project/cpp/xrtcserver/src/ice/ice_def.cpp
 CMakeFiles/xrtcserver.dir/src/main.cpp.o
  ../../rtcbase/src/api/array_view.h
+ ../../rtcbase/src/api/ref_counted_base.h
+ ../../rtcbase/src/api/scoped_refptr.h
  ../../rtcbase/src/rtc_base/checks.h
  ../../rtcbase/src/rtc_base/constructor_magic.h
  ../../rtcbase/src/rtc_base/logging.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+ ../../rtcbase/src/rtc_base/ref_count.h
+ ../../rtcbase/src/rtc_base/ref_counter.h
+ ../../rtcbase/src/rtc_base/rtc_certificate.h
  ../../rtcbase/src/rtc_base/string_encode.h
  ../../rtcbase/src/rtc_base/string_to_number.h
  ../../rtcbase/src/rtc_base/strings/string_builder.h
@@ -153,30 +158,138 @@ CMakeFiles/xrtcserver.dir/src/main.cpp.o
  /home/sugar/project/cpp/xrtcserver/src/server/rtc_server.h
  /home/sugar/project/cpp/xrtcserver/src/server/signaling_server.h
 CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.o
- ../src/base/event_loop.h
- ../src/ice/ice_credentials.h
- ../src/pc/codec_info.h
- ../src/pc/peer_connection.h
- ../src/pc/session_description.h
- /home/sugar/project/cpp/xrtcserver/src/pc/peer_connection.cpp
-CMakeFiles/xrtcserver.dir/src/pc/session_description.cpp.o
- ../src/ice/ice_credentials.h
- ../src/pc/codec_info.h
- ../src/pc/session_description.h
- /home/sugar/project/cpp/xrtcserver/src/pc/session_description.cpp
-CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o
  ../../rtcbase/src/api/array_view.h
+ ../../rtcbase/src/api/ref_counted_base.h
+ ../../rtcbase/src/api/scoped_refptr.h
+ ../../rtcbase/src/rtc_base/buffer.h
  ../../rtcbase/src/rtc_base/checks.h
  ../../rtcbase/src/rtc_base/constructor_magic.h
- ../../rtcbase/src/rtc_base/crc32.h
+ ../../rtcbase/src/rtc_base/copy_on_write_buffer.h
  ../../rtcbase/src/rtc_base/logging.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+ ../../rtcbase/src/rtc_base/ref_count.h
+ ../../rtcbase/src/rtc_base/ref_counted_object.h
+ ../../rtcbase/src/rtc_base/ref_counter.h
+ ../../rtcbase/src/rtc_base/rtc_certificate.h
+ ../../rtcbase/src/rtc_base/ssl_fingerprint.h
  ../../rtcbase/src/rtc_base/string_encode.h
  ../../rtcbase/src/rtc_base/string_to_number.h
  ../../rtcbase/src/rtc_base/strings/string_builder.h
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
+ ../../rtcbase/src/rtc_base/zero_memory.h
+ ../src/base/event_loop.h
+ ../src/ice/ice_credentials.h
+ ../src/pc/codec_info.h
+ ../src/pc/peer_connection.h
+ ../src/pc/session_description.h
+ ../third_part/include/absl/base/attributes.h
+ ../third_part/include/absl/base/config.h
+ ../third_part/include/absl/base/internal/identity.h
+ ../third_part/include/absl/base/internal/inline_variable.h
+ ../third_part/include/absl/base/internal/invoke.h
+ ../third_part/include/absl/base/internal/throw_delegate.h
+ ../third_part/include/absl/base/macros.h
+ ../third_part/include/absl/base/optimization.h
+ ../third_part/include/absl/base/options.h
+ ../third_part/include/absl/base/policy_checks.h
+ ../third_part/include/absl/base/port.h
+ ../third_part/include/absl/memory/memory.h
+ ../third_part/include/absl/meta/type_traits.h
+ ../third_part/include/absl/strings/string_view.h
+ ../third_part/include/absl/types/bad_optional_access.h
+ ../third_part/include/absl/types/internal/optional.h
+ ../third_part/include/absl/types/optional.h
+ ../third_part/include/absl/utility/utility.h
+ /home/sugar/project/cpp/xrtcserver/src/pc/peer_connection.cpp
+CMakeFiles/xrtcserver.dir/src/pc/session_description.cpp.o
+ ../../rtcbase/src/api/array_view.h
+ ../../rtcbase/src/api/ref_counted_base.h
+ ../../rtcbase/src/api/scoped_refptr.h
+ ../../rtcbase/src/rtc_base/buffer.h
+ ../../rtcbase/src/rtc_base/checks.h
+ ../../rtcbase/src/rtc_base/constructor_magic.h
+ ../../rtcbase/src/rtc_base/copy_on_write_buffer.h
+ ../../rtcbase/src/rtc_base/logging.h
+ ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+ ../../rtcbase/src/rtc_base/ref_count.h
+ ../../rtcbase/src/rtc_base/ref_counted_object.h
+ ../../rtcbase/src/rtc_base/ref_counter.h
+ ../../rtcbase/src/rtc_base/rtc_certificate.h
+ ../../rtcbase/src/rtc_base/ssl_fingerprint.h
+ ../../rtcbase/src/rtc_base/string_encode.h
+ ../../rtcbase/src/rtc_base/string_to_number.h
+ ../../rtcbase/src/rtc_base/strings/string_builder.h
+ ../../rtcbase/src/rtc_base/system/inline.h
+ ../../rtcbase/src/rtc_base/system/rtc_export.h
+ ../../rtcbase/src/rtc_base/type_traits.h
+ ../../rtcbase/src/rtc_base/zero_memory.h
+ ../src/ice/ice_credentials.h
+ ../src/pc/codec_info.h
+ ../src/pc/session_description.h
+ ../third_part/include/absl/base/attributes.h
+ ../third_part/include/absl/base/config.h
+ ../third_part/include/absl/base/internal/identity.h
+ ../third_part/include/absl/base/internal/inline_variable.h
+ ../third_part/include/absl/base/internal/invoke.h
+ ../third_part/include/absl/base/internal/throw_delegate.h
+ ../third_part/include/absl/base/macros.h
+ ../third_part/include/absl/base/optimization.h
+ ../third_part/include/absl/base/options.h
+ ../third_part/include/absl/base/policy_checks.h
+ ../third_part/include/absl/base/port.h
+ ../third_part/include/absl/memory/memory.h
+ ../third_part/include/absl/meta/type_traits.h
+ ../third_part/include/absl/strings/string_view.h
+ ../third_part/include/absl/types/bad_optional_access.h
+ ../third_part/include/absl/types/internal/optional.h
+ ../third_part/include/absl/types/optional.h
+ ../third_part/include/absl/utility/utility.h
+ /home/sugar/project/cpp/xrtcserver/src/pc/session_description.cpp
+CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o
+ ../../rtcbase/src/api/array_view.h
+ ../../rtcbase/src/api/function_view.h
+ ../../rtcbase/src/api/ref_counted_base.h
+ ../../rtcbase/src/api/scoped_refptr.h
+ ../../rtcbase/src/api/task_queue/queued_task.h
+ ../../rtcbase/src/api/task_queue/task_queue_base.h
+ ../../rtcbase/src/rtc_base/buffer.h
+ ../../rtcbase/src/rtc_base/byte_order.h
+ ../../rtcbase/src/rtc_base/checks.h
+ ../../rtcbase/src/rtc_base/constructor_magic.h
+ ../../rtcbase/src/rtc_base/copy_on_write_buffer.h
+ ../../rtcbase/src/rtc_base/crc32.h
+ ../../rtcbase/src/rtc_base/deprecated/recursive_critical_section.h
+ ../../rtcbase/src/rtc_base/ip_address.h
+ ../../rtcbase/src/rtc_base/location.h
+ ../../rtcbase/src/rtc_base/logging.h
+ ../../rtcbase/src/rtc_base/message_handler.h
+ ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+ ../../rtcbase/src/rtc_base/platform_thread_types.h
+ ../../rtcbase/src/rtc_base/ref_count.h
+ ../../rtcbase/src/rtc_base/ref_counted_object.h
+ ../../rtcbase/src/rtc_base/ref_counter.h
+ ../../rtcbase/src/rtc_base/rtc_certificate.h
+ ../../rtcbase/src/rtc_base/rtc_certificate_generator.h
+ ../../rtcbase/src/rtc_base/socket.h
+ ../../rtcbase/src/rtc_base/socket_address.h
+ ../../rtcbase/src/rtc_base/socket_factory.h
+ ../../rtcbase/src/rtc_base/socket_server.h
+ ../../rtcbase/src/rtc_base/ssl_fingerprint.h
+ ../../rtcbase/src/rtc_base/ssl_identity.h
+ ../../rtcbase/src/rtc_base/string_encode.h
+ ../../rtcbase/src/rtc_base/string_to_number.h
+ ../../rtcbase/src/rtc_base/strings/string_builder.h
+ ../../rtcbase/src/rtc_base/system/arch.h
+ ../../rtcbase/src/rtc_base/system/inline.h
+ ../../rtcbase/src/rtc_base/system/rtc_export.h
+ ../../rtcbase/src/rtc_base/third_party/sigslot/sigslot.h
+ ../../rtcbase/src/rtc_base/thread.h
+ ../../rtcbase/src/rtc_base/thread_annotations.h
+ ../../rtcbase/src/rtc_base/thread_message.h
+ ../../rtcbase/src/rtc_base/type_traits.h
+ ../../rtcbase/src/rtc_base/zero_memory.h
  ../src/base/event_loop.h
  ../src/base/lock_free_queue.h
  ../src/ice/ice_credentials.h
@@ -241,18 +354,28 @@ CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o
  /home/sugar/project/cpp/xrtcserver/src/server/rtc_server.cpp
 CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o
  ../../rtcbase/src/api/array_view.h
+ ../../rtcbase/src/api/ref_counted_base.h
+ ../../rtcbase/src/api/scoped_refptr.h
+ ../../rtcbase/src/rtc_base/buffer.h
  ../../rtcbase/src/rtc_base/checks.h
  ../../rtcbase/src/rtc_base/constructor_magic.h
+ ../../rtcbase/src/rtc_base/copy_on_write_buffer.h
  ../../rtcbase/src/rtc_base/logging.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+ ../../rtcbase/src/rtc_base/ref_count.h
+ ../../rtcbase/src/rtc_base/ref_counted_object.h
+ ../../rtcbase/src/rtc_base/ref_counter.h
+ ../../rtcbase/src/rtc_base/rtc_certificate.h
  ../../rtcbase/src/rtc_base/sds.h
  ../../rtcbase/src/rtc_base/slice.h
+ ../../rtcbase/src/rtc_base/ssl_fingerprint.h
  ../../rtcbase/src/rtc_base/string_encode.h
  ../../rtcbase/src/rtc_base/string_to_number.h
  ../../rtcbase/src/rtc_base/strings/string_builder.h
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
+ ../../rtcbase/src/rtc_base/zero_memory.h
  ../src/base/event_loop.h
  ../src/base/lock_free_queue.h
  ../src/base/x_header.h
@@ -380,10 +503,15 @@ CMakeFiles/xrtcserver.dir/src/server/signaling_server.cpp.o
  /home/sugar/project/cpp/xrtcserver/src/server/signaling_server.cpp
 CMakeFiles/xrtcserver.dir/src/server/signaling_worker.cpp.o
  ../../rtcbase/src/api/array_view.h
+ ../../rtcbase/src/api/ref_counted_base.h
+ ../../rtcbase/src/api/scoped_refptr.h
  ../../rtcbase/src/rtc_base/checks.h
  ../../rtcbase/src/rtc_base/constructor_magic.h
  ../../rtcbase/src/rtc_base/logging.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+ ../../rtcbase/src/rtc_base/ref_count.h
+ ../../rtcbase/src/rtc_base/ref_counter.h
+ ../../rtcbase/src/rtc_base/rtc_certificate.h
  ../../rtcbase/src/rtc_base/sds.h
  ../../rtcbase/src/rtc_base/slice.h
  ../../rtcbase/src/rtc_base/string_encode.h
@@ -439,6 +567,23 @@ CMakeFiles/xrtcserver.dir/src/server/tcp_connection.cpp.o
  ../src/server/tcp_connection.h
  /home/sugar/project/cpp/xrtcserver/src/server/tcp_connection.cpp
 CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o
+ ../../rtcbase/src/api/array_view.h
+ ../../rtcbase/src/api/ref_counted_base.h
+ ../../rtcbase/src/api/scoped_refptr.h
+ ../../rtcbase/src/rtc_base/buffer.h
+ ../../rtcbase/src/rtc_base/checks.h
+ ../../rtcbase/src/rtc_base/constructor_magic.h
+ ../../rtcbase/src/rtc_base/copy_on_write_buffer.h
+ ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+ ../../rtcbase/src/rtc_base/ref_count.h
+ ../../rtcbase/src/rtc_base/ref_counted_object.h
+ ../../rtcbase/src/rtc_base/ref_counter.h
+ ../../rtcbase/src/rtc_base/rtc_certificate.h
+ ../../rtcbase/src/rtc_base/ssl_fingerprint.h
+ ../../rtcbase/src/rtc_base/system/inline.h
+ ../../rtcbase/src/rtc_base/system/rtc_export.h
+ ../../rtcbase/src/rtc_base/type_traits.h
+ ../../rtcbase/src/rtc_base/zero_memory.h
  ../src/base/event_loop.h
  ../src/ice/ice_credentials.h
  ../src/pc/codec_info.h
@@ -446,16 +591,70 @@ CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o
  ../src/pc/session_description.h
  ../src/stream/push_stream.h
  ../src/stream/rtc_stream.h
+ ../third_part/include/absl/base/attributes.h
+ ../third_part/include/absl/base/config.h
+ ../third_part/include/absl/base/internal/throw_delegate.h
+ ../third_part/include/absl/base/macros.h
+ ../third_part/include/absl/base/optimization.h
+ ../third_part/include/absl/base/options.h
+ ../third_part/include/absl/base/policy_checks.h
+ ../third_part/include/absl/base/port.h
+ ../third_part/include/absl/meta/type_traits.h
+ ../third_part/include/absl/strings/string_view.h
  /home/sugar/project/cpp/xrtcserver/src/stream/push_stream.cpp
 CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.o
+ ../../rtcbase/src/api/array_view.h
+ ../../rtcbase/src/api/ref_counted_base.h
+ ../../rtcbase/src/api/scoped_refptr.h
+ ../../rtcbase/src/rtc_base/buffer.h
+ ../../rtcbase/src/rtc_base/checks.h
+ ../../rtcbase/src/rtc_base/constructor_magic.h
+ ../../rtcbase/src/rtc_base/copy_on_write_buffer.h
+ ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+ ../../rtcbase/src/rtc_base/ref_count.h
+ ../../rtcbase/src/rtc_base/ref_counted_object.h
+ ../../rtcbase/src/rtc_base/ref_counter.h
+ ../../rtcbase/src/rtc_base/rtc_certificate.h
+ ../../rtcbase/src/rtc_base/ssl_fingerprint.h
+ ../../rtcbase/src/rtc_base/system/inline.h
+ ../../rtcbase/src/rtc_base/system/rtc_export.h
+ ../../rtcbase/src/rtc_base/type_traits.h
+ ../../rtcbase/src/rtc_base/zero_memory.h
  ../src/base/event_loop.h
  ../src/ice/ice_credentials.h
  ../src/pc/codec_info.h
  ../src/pc/peer_connection.h
  ../src/pc/session_description.h
  ../src/stream/rtc_stream.h
+ ../third_part/include/absl/base/attributes.h
+ ../third_part/include/absl/base/config.h
+ ../third_part/include/absl/base/internal/throw_delegate.h
+ ../third_part/include/absl/base/macros.h
+ ../third_part/include/absl/base/optimization.h
+ ../third_part/include/absl/base/options.h
+ ../third_part/include/absl/base/policy_checks.h
+ ../third_part/include/absl/base/port.h
+ ../third_part/include/absl/meta/type_traits.h
+ ../third_part/include/absl/strings/string_view.h
  /home/sugar/project/cpp/xrtcserver/src/stream/rtc_stream.cpp
 CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o
+ ../../rtcbase/src/api/array_view.h
+ ../../rtcbase/src/api/ref_counted_base.h
+ ../../rtcbase/src/api/scoped_refptr.h
+ ../../rtcbase/src/rtc_base/buffer.h
+ ../../rtcbase/src/rtc_base/checks.h
+ ../../rtcbase/src/rtc_base/constructor_magic.h
+ ../../rtcbase/src/rtc_base/copy_on_write_buffer.h
+ ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+ ../../rtcbase/src/rtc_base/ref_count.h
+ ../../rtcbase/src/rtc_base/ref_counted_object.h
+ ../../rtcbase/src/rtc_base/ref_counter.h
+ ../../rtcbase/src/rtc_base/rtc_certificate.h
+ ../../rtcbase/src/rtc_base/ssl_fingerprint.h
+ ../../rtcbase/src/rtc_base/system/inline.h
+ ../../rtcbase/src/rtc_base/system/rtc_export.h
+ ../../rtcbase/src/rtc_base/type_traits.h
+ ../../rtcbase/src/rtc_base/zero_memory.h
  ../src/base/event_loop.h
  ../src/ice/ice_credentials.h
  ../src/pc/codec_info.h
@@ -464,4 +663,14 @@ CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o
  ../src/stream/push_stream.h
  ../src/stream/rtc_stream.h
  ../src/stream/rtc_stream_manager.h
+ ../third_part/include/absl/base/attributes.h
+ ../third_part/include/absl/base/config.h
+ ../third_part/include/absl/base/internal/throw_delegate.h
+ ../third_part/include/absl/base/macros.h
+ ../third_part/include/absl/base/optimization.h
+ ../third_part/include/absl/base/options.h
+ ../third_part/include/absl/base/policy_checks.h
+ ../third_part/include/absl/base/port.h
+ ../third_part/include/absl/meta/type_traits.h
+ ../third_part/include/absl/strings/string_view.h
  /home/sugar/project/cpp/xrtcserver/src/stream/rtc_stream_manager.cpp

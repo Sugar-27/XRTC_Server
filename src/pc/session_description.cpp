@@ -7,6 +7,8 @@
 #include "pc/session_description.h"
 
 #include "pc/codec_info.h"
+#include "rtc_base/logging.h"
+#include "rtc_base/ssl_fingerprint.h"
 
 #include <memory>
 #include <sstream>
@@ -137,6 +139,72 @@ static void build_rtp_direction(std::shared_ptr<MediaContentDescription> content
     }
 }
 
+static std::string connection_role_to_string(ConnectionRole role) {
+    switch (role) {
+    case ConnectionRole::ACTIVE:
+        return "active";
+    case ConnectionRole::PASSIVE:
+        return "passive";
+    case ConnectionRole::ACTPASS:
+        return "actpass";
+    case ConnectionRole::HOLDCONN:
+        return "holdconn";
+    default:
+        return "none";
+    }
+}
+
+void SessionDescription::add_content(std::shared_ptr<MediaContentDescription> content) { _contents.push_back(content); }
+
+void SessionDescription::add_group(const ContentGroup& group) { _content_groups.push_back(group); }
+
+std::vector<const ContentGroup*> SessionDescription::get_group_by_name(const std::string& name) const {
+    std::vector<const ContentGroup*> content_groups;
+    for (const ContentGroup& group : _content_groups) {
+        if (group.semantics() == name) {
+            content_groups.push_back(&group);
+        }
+    }
+
+    return content_groups;
+}
+
+bool SessionDescription::add_transport_info(const std::string& mid,
+                                            const IceParameters& ice_param,
+                                            rtc::RTCCertificate* certificate) {
+    auto tdesc = std::make_shared<TransportDescription>();
+    tdesc->mid = mid;
+    tdesc->ice_ufrag = ice_param.ice_ufrag;
+    tdesc->ice_pwd = ice_param.ice_pwd;
+    if (certificate) {
+        tdesc->identity_fingerprint = rtc::SSLFingerprint::CreateFromCertificate(*certificate);
+        if (!tdesc->identity_fingerprint) {
+            RTC_LOG(LS_WARNING) << "get fingerprint failed";
+            return false;
+        }
+    }
+
+    if (_sdp_type == SdpType::k_offer) {
+        tdesc->connection_role = ConnectionRole::ACTPASS;
+    } else {
+        tdesc->connection_role = ConnectionRole::ACTIVE;
+    }
+
+    _transport_infos.push_back(tdesc);
+
+    return true;
+}
+
+std::shared_ptr<TransportDescription> SessionDescription::get_transport_info(const std::string& mid) {
+    for (auto tdesc : _transport_infos) {
+        if (tdesc->mid == mid) {
+            return tdesc;
+        }
+    }
+
+    return nullptr;
+}
+
 std::string SessionDescription::to_string() {
     std::stringstream ss;
     // 第一行：version
@@ -181,6 +249,12 @@ std::string SessionDescription::to_string() {
             if (transport_info) {
                 ss << "a=ice-ufrag:" << transport_info->ice_ufrag << "\r\n";
                 ss << "a=ice-pwd:" << transport_info->ice_pwd << "\r\n";
+
+                auto fp = transport_info->identity_fingerprint.get();
+                if (fp) {
+                    ss << "a=fingerprint:" << fp->algorithm << " " << fp->GetRfc4572Fingerprint() << "\r\n";
+                    ss << "a=setup:" << connection_role_to_string(transport_info->connection_role) << "\r\n";
+                }
             }
 
             ss << "a=mid:" << content->mid() << "\r\n";
@@ -194,40 +268,5 @@ std::string SessionDescription::to_string() {
     }
 
     return ss.str();
-}
-
-void SessionDescription::add_content(std::shared_ptr<MediaContentDescription> content) { _contents.push_back(content); }
-
-void SessionDescription::add_group(const ContentGroup& group) { _content_groups.push_back(group); }
-
-std::vector<const ContentGroup*> SessionDescription::get_group_by_name(const std::string& name) const {
-    std::vector<const ContentGroup*> content_groups;
-    for (const ContentGroup& group : _content_groups) {
-        if (group.semantics() == name) {
-            content_groups.push_back(&group);
-        }
-    }
-
-    return content_groups;
-}
-bool SessionDescription::add_transport_info(const std::string &mid, const IceParameters &ice_param) {
-    auto tdesc = std::make_shared<TransportDescription>();
-    tdesc->mid = mid;
-    tdesc->ice_ufrag = ice_param.ice_ufrag;
-    tdesc->ice_pwd = ice_param.ice_pwd;
-
-    _transport_infos.push_back(tdesc);
-
-    return true;
-}
-
-std::shared_ptr<TransportDescription> SessionDescription::get_transport_info(const std::string& mid) {
-    for (auto tdesc : _transport_infos) {
-        if (tdesc->mid == mid) {
-            return tdesc;
-        }
-    }
-
-    return nullptr;
 }
 } // namespace xrtc

@@ -8,6 +8,7 @@
 
 #include "base/event_loop.h"
 #include "pc/peer_connection.h"
+#include "rtc_base/rtc_certificate.h"
 
 #include <cstdint>
 #include <memory>
@@ -19,6 +20,7 @@ class RtcStream {
     virtual ~RtcStream();
 
     virtual std::string create_offer() = 0;
+    int start(rtc::RTCCertificate* certificate);
 
   protected:
     EventLoop* el;

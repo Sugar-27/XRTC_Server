@@ -34,6 +34,7 @@ target_link_libraries(
     libabsl_throw_delegate.a 
     libev.a
     libjsoncpp.a
+    libssl.a
     libcrypto.a
     -lpthread
     -ldl

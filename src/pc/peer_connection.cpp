@@ -8,6 +8,7 @@
 #include "base/event_loop.h"
 #include "ice/ice_credentials.h"
 #include "pc/session_description.h"
+#include "rtc_base/logging.h"
 
 #include <memory>
 
@@ -29,6 +30,11 @@ PeerConnection::PeerConnection(EventLoop* el) : _el(el) {}
 PeerConnection::~PeerConnection() {}
 
 std::string PeerConnection::create_offer(const RtcOfferAnswerOptions& options) {
+    if (options.dtls_on && !_certificate) {
+        RTC_LOG(LS_WARNING) << "certificate is null";
+        return "";
+    }
+
     _local_desc = std::make_unique<SessionDescription>(SdpType::k_offer);
 
     IceParameters ice_param = IceCredentials::create_random_ice_credentials();
@@ -38,7 +44,7 @@ std::string PeerConnection::create_offer(const RtcOfferAnswerOptions& options) {
         audio->set_direction(get_direction(options.send_audio, options.recv_audio));
         audio->set_rtcp_mux(options.use_rtcp_mux);
         _local_desc->add_content(audio);
-        _local_desc->add_transport_info(audio->mid(), ice_param);
+        _local_desc->add_transport_info(audio->mid(), ice_param, _certificate);
     }
 
     if (options.recv_video) { // 推送视频
@@ -46,7 +52,7 @@ std::string PeerConnection::create_offer(const RtcOfferAnswerOptions& options) {
         video->set_direction(get_direction(options.send_video, options.recv_video));
         video->set_rtcp_mux(options.use_rtcp_mux);
         _local_desc->add_content(video);
-        _local_desc->add_transport_info(video->mid(), ice_param);
+        _local_desc->add_transport_info(video->mid(), ice_param, _certificate);
     }
 
     if (options.use_rtp_mux) { // 通道服用，使用bundle进行传输，音视频使用一条传输通道
@@ -61,5 +67,10 @@ std::string PeerConnection::create_offer(const RtcOfferAnswerOptions& options) {
     }
 
     return _local_desc->to_string();
+}
+
+int PeerConnection::init(rtc::RTCCertificate* certificate) {
+    _certificate = certificate;
+    return 0;
 }
 } // namespace xrtc
