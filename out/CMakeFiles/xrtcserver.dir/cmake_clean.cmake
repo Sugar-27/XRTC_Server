@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o"
   "CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.o"
   "CMakeFiles/xrtcserver.dir/src/base/log.cpp.o"
+  "CMakeFiles/xrtcserver.dir/src/base/network.cpp.o"
   "CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o"
   "CMakeFiles/xrtcserver.dir/src/ice/ice_agent.cpp.o"
   "CMakeFiles/xrtcserver.dir/src/ice/ice_credentials.cpp.o"

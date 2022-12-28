@@ -5,6 +5,7 @@
  */
 #include "base/conf.h"
 #include "base/log.h"
+#include "base/network.h"
 #include "rtc_base/logging.h"
 #include "server/rtc_server.h"
 #include "server/signaling_server.h"
@@ -92,6 +93,9 @@ int main() {
     }
 
     g_log->setLogToStderr(g_conf->log_to_stderr);
+
+    xrtc::NetworkManager network_manager;
+    network_manager.create_networks();
 
     // 初始化信令服务服务器
     ret = init_signaling_server("./conf/signaling_server.yaml");

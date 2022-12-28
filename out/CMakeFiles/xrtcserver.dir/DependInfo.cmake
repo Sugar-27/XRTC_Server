@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sugar/project/cpp/xrtcserver/src/base/conf.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/conf.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/base/event_loop.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/event_loop.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/base/log.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/log.cpp.o"
+  "/home/sugar/project/cpp/xrtcserver/src/base/network.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/network.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/base/socket.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/ice/ice_agent.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/ice/ice_agent.cpp.o"
   "/home/sugar/project/cpp/xrtcserver/src/ice/ice_credentials.cpp" "/home/sugar/project/cpp/xrtcserver/out/CMakeFiles/xrtcserver.dir/src/ice/ice_credentials.cpp.o"
