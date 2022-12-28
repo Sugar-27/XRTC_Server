@@ -94,9 +94,6 @@ int main() {
 
     g_log->setLogToStderr(g_conf->log_to_stderr);
 
-    xrtc::NetworkManager network_manager;
-    network_manager.create_networks();
-
     // 初始化信令服务服务器
     ret = init_signaling_server("./conf/signaling_server.yaml");
     if (ret != 0) {

@@ -7,6 +7,7 @@
 #define __PEER_CONNECTION_H
 
 #include "base/event_loop.h"
+#include "ice/port_allocator.h"
 #include "pc/session_description.h"
 #include "pc/transport_controller.h"
 #include "rtc_base/rtc_certificate.h"
@@ -26,7 +27,7 @@ struct RtcOfferAnswerOptions {
 
 class PeerConnection {
   public:
-    PeerConnection(EventLoop* el);
+    PeerConnection(EventLoop* el, PortAllocator* allocator);
     ~PeerConnection();
 
     std::string create_offer(const RtcOfferAnswerOptions& options);

@@ -142,10 +142,16 @@ CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o
  ../third_part/include/absl/utility/utility.h
  /home/sugar/project/cpp/xrtcserver/src/base/socket.cpp
 CMakeFiles/xrtcserver.dir/src/ice/ice_agent.cpp.o
+ ../../rtcbase/src/rtc_base/byte_order.h
+ ../../rtcbase/src/rtc_base/ip_address.h
+ ../../rtcbase/src/rtc_base/system/arch.h
+ ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../src/base/event_loop.h
+ ../src/base/network.h
  ../src/ice/ice_agent.h
  ../src/ice/ice_def.h
  ../src/ice/ice_transport_channel.h
+ ../src/ice/port_allocator.h
  /home/sugar/project/cpp/xrtcserver/src/ice/ice_agent.cpp
 CMakeFiles/xrtcserver.dir/src/ice/ice_credentials.cpp.o
  ../../rtcbase/src/rtc_base/helpers.h
@@ -158,19 +164,24 @@ CMakeFiles/xrtcserver.dir/src/ice/ice_def.cpp.o
  /home/sugar/project/cpp/xrtcserver/src/ice/ice_def.cpp
 CMakeFiles/xrtcserver.dir/src/ice/ice_transport_channel.cpp.o
  ../../rtcbase/src/api/array_view.h
+ ../../rtcbase/src/rtc_base/byte_order.h
  ../../rtcbase/src/rtc_base/checks.h
  ../../rtcbase/src/rtc_base/constructor_magic.h
+ ../../rtcbase/src/rtc_base/ip_address.h
  ../../rtcbase/src/rtc_base/logging.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h
  ../../rtcbase/src/rtc_base/string_encode.h
  ../../rtcbase/src/rtc_base/string_to_number.h
  ../../rtcbase/src/rtc_base/strings/string_builder.h
+ ../../rtcbase/src/rtc_base/system/arch.h
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
  ../src/base/event_loop.h
+ ../src/base/network.h
  ../src/ice/ice_def.h
  ../src/ice/ice_transport_channel.h
+ ../src/ice/port_allocator.h
  ../third_part/include/absl/base/attributes.h
  ../third_part/include/absl/base/config.h
  ../third_part/include/absl/base/internal/identity.h
@@ -190,6 +201,14 @@ CMakeFiles/xrtcserver.dir/src/ice/ice_transport_channel.cpp.o
  ../third_part/include/absl/types/optional.h
  ../third_part/include/absl/utility/utility.h
  /home/sugar/project/cpp/xrtcserver/src/ice/ice_transport_channel.cpp
+CMakeFiles/xrtcserver.dir/src/ice/port_allocator.cpp.o
+ ../../rtcbase/src/rtc_base/byte_order.h
+ ../../rtcbase/src/rtc_base/ip_address.h
+ ../../rtcbase/src/rtc_base/system/arch.h
+ ../../rtcbase/src/rtc_base/system/rtc_export.h
+ ../src/base/network.h
+ ../src/ice/port_allocator.h
+ /home/sugar/project/cpp/xrtcserver/src/ice/port_allocator.cpp
 CMakeFiles/xrtcserver.dir/src/main.cpp.o
  ../../rtcbase/src/api/array_view.h
  ../../rtcbase/src/api/ref_counted_base.h
@@ -241,9 +260,11 @@ CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.o
  ../../rtcbase/src/api/ref_counted_base.h
  ../../rtcbase/src/api/scoped_refptr.h
  ../../rtcbase/src/rtc_base/buffer.h
+ ../../rtcbase/src/rtc_base/byte_order.h
  ../../rtcbase/src/rtc_base/checks.h
  ../../rtcbase/src/rtc_base/constructor_magic.h
  ../../rtcbase/src/rtc_base/copy_on_write_buffer.h
+ ../../rtcbase/src/rtc_base/ip_address.h
  ../../rtcbase/src/rtc_base/logging.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h
  ../../rtcbase/src/rtc_base/ref_count.h
@@ -254,15 +275,18 @@ CMakeFiles/xrtcserver.dir/src/pc/peer_connection.cpp.o
  ../../rtcbase/src/rtc_base/string_encode.h
  ../../rtcbase/src/rtc_base/string_to_number.h
  ../../rtcbase/src/rtc_base/strings/string_builder.h
+ ../../rtcbase/src/rtc_base/system/arch.h
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
  ../../rtcbase/src/rtc_base/zero_memory.h
  ../src/base/event_loop.h
+ ../src/base/network.h
  ../src/ice/ice_agent.h
  ../src/ice/ice_credentials.h
  ../src/ice/ice_def.h
  ../src/ice/ice_transport_channel.h
+ ../src/ice/port_allocator.h
  ../src/pc/codec_info.h
  ../src/pc/peer_connection.h
  ../src/pc/session_description.h
@@ -335,9 +359,11 @@ CMakeFiles/xrtcserver.dir/src/pc/transport_controller.cpp.o
  ../../rtcbase/src/api/ref_counted_base.h
  ../../rtcbase/src/api/scoped_refptr.h
  ../../rtcbase/src/rtc_base/buffer.h
+ ../../rtcbase/src/rtc_base/byte_order.h
  ../../rtcbase/src/rtc_base/checks.h
  ../../rtcbase/src/rtc_base/constructor_magic.h
  ../../rtcbase/src/rtc_base/copy_on_write_buffer.h
+ ../../rtcbase/src/rtc_base/ip_address.h
  ../../rtcbase/src/rtc_base/logging.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h
  ../../rtcbase/src/rtc_base/ref_count.h
@@ -348,15 +374,18 @@ CMakeFiles/xrtcserver.dir/src/pc/transport_controller.cpp.o
  ../../rtcbase/src/rtc_base/string_encode.h
  ../../rtcbase/src/rtc_base/string_to_number.h
  ../../rtcbase/src/rtc_base/strings/string_builder.h
+ ../../rtcbase/src/rtc_base/system/arch.h
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
  ../../rtcbase/src/rtc_base/zero_memory.h
  ../src/base/event_loop.h
+ ../src/base/network.h
  ../src/ice/ice_agent.h
  ../src/ice/ice_credentials.h
  ../src/ice/ice_def.h
  ../src/ice/ice_transport_channel.h
+ ../src/ice/port_allocator.h
  ../src/pc/codec_info.h
  ../src/pc/session_description.h
  ../src/pc/transport_controller.h
@@ -424,10 +453,12 @@ CMakeFiles/xrtcserver.dir/src/server/rtc_server.cpp.o
  ../../rtcbase/src/rtc_base/zero_memory.h
  ../src/base/event_loop.h
  ../src/base/lock_free_queue.h
+ ../src/base/network.h
  ../src/ice/ice_agent.h
  ../src/ice/ice_credentials.h
  ../src/ice/ice_def.h
  ../src/ice/ice_transport_channel.h
+ ../src/ice/port_allocator.h
  ../src/pc/codec_info.h
  ../src/pc/peer_connection.h
  ../src/pc/session_description.h
@@ -493,9 +524,11 @@ CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o
  ../../rtcbase/src/api/ref_counted_base.h
  ../../rtcbase/src/api/scoped_refptr.h
  ../../rtcbase/src/rtc_base/buffer.h
+ ../../rtcbase/src/rtc_base/byte_order.h
  ../../rtcbase/src/rtc_base/checks.h
  ../../rtcbase/src/rtc_base/constructor_magic.h
  ../../rtcbase/src/rtc_base/copy_on_write_buffer.h
+ ../../rtcbase/src/rtc_base/ip_address.h
  ../../rtcbase/src/rtc_base/logging.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h
  ../../rtcbase/src/rtc_base/ref_count.h
@@ -508,17 +541,20 @@ CMakeFiles/xrtcserver.dir/src/server/rtc_worker.cpp.o
  ../../rtcbase/src/rtc_base/string_encode.h
  ../../rtcbase/src/rtc_base/string_to_number.h
  ../../rtcbase/src/rtc_base/strings/string_builder.h
+ ../../rtcbase/src/rtc_base/system/arch.h
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
  ../../rtcbase/src/rtc_base/zero_memory.h
  ../src/base/event_loop.h
  ../src/base/lock_free_queue.h
+ ../src/base/network.h
  ../src/base/x_header.h
  ../src/ice/ice_agent.h
  ../src/ice/ice_credentials.h
  ../src/ice/ice_def.h
  ../src/ice/ice_transport_channel.h
+ ../src/ice/port_allocator.h
  ../src/pc/codec_info.h
  ../src/pc/peer_connection.h
  ../src/pc/session_description.h
@@ -711,24 +747,29 @@ CMakeFiles/xrtcserver.dir/src/stream/push_stream.cpp.o
  ../../rtcbase/src/api/ref_counted_base.h
  ../../rtcbase/src/api/scoped_refptr.h
  ../../rtcbase/src/rtc_base/buffer.h
+ ../../rtcbase/src/rtc_base/byte_order.h
  ../../rtcbase/src/rtc_base/checks.h
  ../../rtcbase/src/rtc_base/constructor_magic.h
  ../../rtcbase/src/rtc_base/copy_on_write_buffer.h
+ ../../rtcbase/src/rtc_base/ip_address.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h
  ../../rtcbase/src/rtc_base/ref_count.h
  ../../rtcbase/src/rtc_base/ref_counted_object.h
  ../../rtcbase/src/rtc_base/ref_counter.h
  ../../rtcbase/src/rtc_base/rtc_certificate.h
  ../../rtcbase/src/rtc_base/ssl_fingerprint.h
+ ../../rtcbase/src/rtc_base/system/arch.h
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
  ../../rtcbase/src/rtc_base/zero_memory.h
  ../src/base/event_loop.h
+ ../src/base/network.h
  ../src/ice/ice_agent.h
  ../src/ice/ice_credentials.h
  ../src/ice/ice_def.h
  ../src/ice/ice_transport_channel.h
+ ../src/ice/port_allocator.h
  ../src/pc/codec_info.h
  ../src/pc/peer_connection.h
  ../src/pc/session_description.h
@@ -751,24 +792,29 @@ CMakeFiles/xrtcserver.dir/src/stream/rtc_stream.cpp.o
  ../../rtcbase/src/api/ref_counted_base.h
  ../../rtcbase/src/api/scoped_refptr.h
  ../../rtcbase/src/rtc_base/buffer.h
+ ../../rtcbase/src/rtc_base/byte_order.h
  ../../rtcbase/src/rtc_base/checks.h
  ../../rtcbase/src/rtc_base/constructor_magic.h
  ../../rtcbase/src/rtc_base/copy_on_write_buffer.h
+ ../../rtcbase/src/rtc_base/ip_address.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h
  ../../rtcbase/src/rtc_base/ref_count.h
  ../../rtcbase/src/rtc_base/ref_counted_object.h
  ../../rtcbase/src/rtc_base/ref_counter.h
  ../../rtcbase/src/rtc_base/rtc_certificate.h
  ../../rtcbase/src/rtc_base/ssl_fingerprint.h
+ ../../rtcbase/src/rtc_base/system/arch.h
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
  ../../rtcbase/src/rtc_base/zero_memory.h
  ../src/base/event_loop.h
+ ../src/base/network.h
  ../src/ice/ice_agent.h
  ../src/ice/ice_credentials.h
  ../src/ice/ice_def.h
  ../src/ice/ice_transport_channel.h
+ ../src/ice/port_allocator.h
  ../src/pc/codec_info.h
  ../src/pc/peer_connection.h
  ../src/pc/session_description.h
@@ -790,24 +836,29 @@ CMakeFiles/xrtcserver.dir/src/stream/rtc_stream_manager.cpp.o
  ../../rtcbase/src/api/ref_counted_base.h
  ../../rtcbase/src/api/scoped_refptr.h
  ../../rtcbase/src/rtc_base/buffer.h
+ ../../rtcbase/src/rtc_base/byte_order.h
  ../../rtcbase/src/rtc_base/checks.h
  ../../rtcbase/src/rtc_base/constructor_magic.h
  ../../rtcbase/src/rtc_base/copy_on_write_buffer.h
+ ../../rtcbase/src/rtc_base/ip_address.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h
  ../../rtcbase/src/rtc_base/ref_count.h
  ../../rtcbase/src/rtc_base/ref_counted_object.h
  ../../rtcbase/src/rtc_base/ref_counter.h
  ../../rtcbase/src/rtc_base/rtc_certificate.h
  ../../rtcbase/src/rtc_base/ssl_fingerprint.h
+ ../../rtcbase/src/rtc_base/system/arch.h
  ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
  ../../rtcbase/src/rtc_base/type_traits.h
  ../../rtcbase/src/rtc_base/zero_memory.h
  ../src/base/event_loop.h
+ ../src/base/network.h
  ../src/ice/ice_agent.h
  ../src/ice/ice_credentials.h
  ../src/ice/ice_def.h
  ../src/ice/ice_transport_channel.h
+ ../src/ice/port_allocator.h
  ../src/pc/codec_info.h
  ../src/pc/peer_connection.h
  ../src/pc/session_description.h

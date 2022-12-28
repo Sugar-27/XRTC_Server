@@ -5,12 +5,18 @@
  */
 #include "stream/push_stream.h"
 
+#include "ice/port_allocator.h"
 #include "pc/peer_connection.h"
 #include "stream/rtc_stream.h"
 namespace xrtc {
-PushStream::PushStream(
-    EventLoop* el, uint64_t uid, const std::string& stream_name, bool audio, bool video, uint32_t log_id)
-    : RtcStream(el, uid, stream_name, audio, video, log_id) {}
+PushStream::PushStream(EventLoop* el,
+                       PortAllocator* allocator,
+                       uint64_t uid,
+                       const std::string& stream_name,
+                       bool audio,
+                       bool video,
+                       uint32_t log_id)
+    : RtcStream(el, allocator, uid, stream_name, audio, video, log_id) {}
 
 PushStream::~PushStream() {}
 

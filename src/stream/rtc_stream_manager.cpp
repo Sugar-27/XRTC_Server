@@ -7,10 +7,12 @@
 #include "stream/rtc_stream_manager.h"
 
 #include "base/event_loop.h"
+#include "ice/port_allocator.h"
 #include "rtc_base/rtc_certificate.h"
 #include "stream/push_stream.h"
+#include <memory>
 namespace xrtc {
-RtcStreamManager::RtcStreamManager(EventLoop* el) : _el(el) {}
+RtcStreamManager::RtcStreamManager(EventLoop* el) : _el(el), _allocator(std::make_unique<PortAllocator>()) {}
 
 RtcStreamManager::~RtcStreamManager() {}
 
@@ -26,7 +28,7 @@ int RtcStreamManager::create_push_stream(uint64_t uid,
         _push_streams.erase(stream_name);
         delete stream;
     }
-    stream = new PushStream(_el, uid, stream_name, audio, video, log_id);
+    stream = new PushStream(_el, _allocator.get(), uid, stream_name, audio, video, log_id);
     stream->start(certificate);
     offer = stream->create_offer();
 

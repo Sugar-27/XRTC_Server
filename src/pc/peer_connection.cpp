@@ -7,6 +7,7 @@
 
 #include "base/event_loop.h"
 #include "ice/ice_credentials.h"
+#include "ice/port_allocator.h"
 #include "pc/session_description.h"
 #include "pc/transport_controller.h"
 #include "rtc_base/logging.h"
@@ -26,7 +27,8 @@ static RtpDirection get_direction(bool send, bool recv) {
     }
 }
 
-PeerConnection::PeerConnection(EventLoop* el) : _el(el), _transport_controller(new TransportController(el)) {}
+PeerConnection::PeerConnection(EventLoop* el, PortAllocator* allocator)
+    : _el(el), _transport_controller(new TransportController(el, allocator)) {}
 
 PeerConnection::~PeerConnection() {}
 

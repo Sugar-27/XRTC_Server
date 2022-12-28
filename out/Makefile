@@ -366,6 +366,33 @@ src/ice/ice_transport_channel.cpp.s:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_transport_channel.cpp.s
 .PHONY : src/ice/ice_transport_channel.cpp.s
 
+src/ice/port_allocator.o: src/ice/port_allocator.cpp.o
+
+.PHONY : src/ice/port_allocator.o
+
+# target to build an object file
+src/ice/port_allocator.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/port_allocator.cpp.o
+.PHONY : src/ice/port_allocator.cpp.o
+
+src/ice/port_allocator.i: src/ice/port_allocator.cpp.i
+
+.PHONY : src/ice/port_allocator.i
+
+# target to preprocess a source file
+src/ice/port_allocator.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/port_allocator.cpp.i
+.PHONY : src/ice/port_allocator.cpp.i
+
+src/ice/port_allocator.s: src/ice/port_allocator.cpp.s
+
+.PHONY : src/ice/port_allocator.s
+
+# target to generate assembly for a file
+src/ice/port_allocator.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/port_allocator.cpp.s
+.PHONY : src/ice/port_allocator.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -726,6 +753,9 @@ help:
 	@echo "... src/ice/ice_transport_channel.o"
 	@echo "... src/ice/ice_transport_channel.i"
 	@echo "... src/ice/ice_transport_channel.s"
+	@echo "... src/ice/port_allocator.o"
+	@echo "... src/ice/port_allocator.i"
+	@echo "... src/ice/port_allocator.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

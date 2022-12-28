@@ -8,14 +8,17 @@
 #include "base/event_loop.h"
 #include "ice/ice_agent.h"
 #include "ice/ice_def.h"
+#include "ice/port_allocator.h"
 #include "rtc_base/logging.h"
+
 #include <string>
 namespace xrtc {
-TransportController::TransportController(EventLoop* el) : _el(el), _ice_agent(new IceAgent(el)) {}
+TransportController::TransportController(EventLoop* el, PortAllocator* allocator)
+    : _el(el), _ice_agent(new IceAgent(el, allocator)) {}
 
 TransportController::~TransportController() {}
 
-int TransportController::set_local_description(SessionDescription *desc) {
+int TransportController::set_local_description(SessionDescription* desc) {
     if (!desc) {
         RTC_LOG(LS_WARNING) << "desc is null";
         return -1;

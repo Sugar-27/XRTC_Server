@@ -9,13 +9,15 @@
 #include "base/event_loop.h"
 #include "ice/ice_def.h"
 #include "ice/ice_transport_channel.h"
+#include "ice/port_allocator.h"
 
+#include <memory>
 #include <string>
 #include <vector>
 namespace xrtc {
 class IceAgent {
   public:
-    IceAgent(EventLoop* el);
+    IceAgent(EventLoop* el, PortAllocator* allocator);
     ~IceAgent();
 
     bool create_channel(EventLoop* el, const std::string& transport_name, IceCandidateComponent component);
@@ -29,6 +31,7 @@ class IceAgent {
   private:
     EventLoop* _el;
     std::vector<IceTransportChannel*> _channels;
+    PortAllocator* _allocator;
 };
 } // namespace xrtc
 

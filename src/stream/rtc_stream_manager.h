@@ -7,10 +7,12 @@
 #define __RTC_STREAM_MANAGER_H
 
 #include "base/event_loop.h"
+#include "ice/port_allocator.h"
 #include "rtc_base/rtc_certificate.h"
 #include "stream/push_stream.h"
 
 #include <cstdint>
+#include <memory>
 #include <string>
 #include <unordered_map>
 namespace xrtc {
@@ -33,6 +35,7 @@ class RtcStreamManager {
   private:
     EventLoop* _el;
     std::unordered_map<std::string, PushStream*> _push_streams;
+    std::unique_ptr<PortAllocator> _allocator;
 };
 } // namespace xrtc
 
