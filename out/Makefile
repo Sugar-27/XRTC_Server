@@ -231,6 +231,33 @@ src/base/socket.cpp.s:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/base/socket.cpp.s
 .PHONY : src/base/socket.cpp.s
 
+src/ice/ice_agent.o: src/ice/ice_agent.cpp.o
+
+.PHONY : src/ice/ice_agent.o
+
+# target to build an object file
+src/ice/ice_agent.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_agent.cpp.o
+.PHONY : src/ice/ice_agent.cpp.o
+
+src/ice/ice_agent.i: src/ice/ice_agent.cpp.i
+
+.PHONY : src/ice/ice_agent.i
+
+# target to preprocess a source file
+src/ice/ice_agent.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_agent.cpp.i
+.PHONY : src/ice/ice_agent.cpp.i
+
+src/ice/ice_agent.s: src/ice/ice_agent.cpp.s
+
+.PHONY : src/ice/ice_agent.s
+
+# target to generate assembly for a file
+src/ice/ice_agent.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_agent.cpp.s
+.PHONY : src/ice/ice_agent.cpp.s
+
 src/ice/ice_credentials.o: src/ice/ice_credentials.cpp.o
 
 .PHONY : src/ice/ice_credentials.o
@@ -284,6 +311,33 @@ src/ice/ice_def.s: src/ice/ice_def.cpp.s
 src/ice/ice_def.cpp.s:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_def.cpp.s
 .PHONY : src/ice/ice_def.cpp.s
+
+src/ice/ice_transport_channel.o: src/ice/ice_transport_channel.cpp.o
+
+.PHONY : src/ice/ice_transport_channel.o
+
+# target to build an object file
+src/ice/ice_transport_channel.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_transport_channel.cpp.o
+.PHONY : src/ice/ice_transport_channel.cpp.o
+
+src/ice/ice_transport_channel.i: src/ice/ice_transport_channel.cpp.i
+
+.PHONY : src/ice/ice_transport_channel.i
+
+# target to preprocess a source file
+src/ice/ice_transport_channel.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_transport_channel.cpp.i
+.PHONY : src/ice/ice_transport_channel.cpp.i
+
+src/ice/ice_transport_channel.s: src/ice/ice_transport_channel.cpp.s
+
+.PHONY : src/ice/ice_transport_channel.s
+
+# target to generate assembly for a file
+src/ice/ice_transport_channel.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/ice_transport_channel.cpp.s
+.PHONY : src/ice/ice_transport_channel.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -365,6 +419,33 @@ src/pc/session_description.s: src/pc/session_description.cpp.s
 src/pc/session_description.cpp.s:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/pc/session_description.cpp.s
 .PHONY : src/pc/session_description.cpp.s
+
+src/pc/transport_controller.o: src/pc/transport_controller.cpp.o
+
+.PHONY : src/pc/transport_controller.o
+
+# target to build an object file
+src/pc/transport_controller.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/pc/transport_controller.cpp.o
+.PHONY : src/pc/transport_controller.cpp.o
+
+src/pc/transport_controller.i: src/pc/transport_controller.cpp.i
+
+.PHONY : src/pc/transport_controller.i
+
+# target to preprocess a source file
+src/pc/transport_controller.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/pc/transport_controller.cpp.i
+.PHONY : src/pc/transport_controller.cpp.i
+
+src/pc/transport_controller.s: src/pc/transport_controller.cpp.s
+
+.PHONY : src/pc/transport_controller.s
+
+# target to generate assembly for a file
+src/pc/transport_controller.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/pc/transport_controller.cpp.s
+.PHONY : src/pc/transport_controller.cpp.s
 
 src/server/rtc_server.o: src/server/rtc_server.cpp.o
 
@@ -603,12 +684,18 @@ help:
 	@echo "... src/base/socket.o"
 	@echo "... src/base/socket.i"
 	@echo "... src/base/socket.s"
+	@echo "... src/ice/ice_agent.o"
+	@echo "... src/ice/ice_agent.i"
+	@echo "... src/ice/ice_agent.s"
 	@echo "... src/ice/ice_credentials.o"
 	@echo "... src/ice/ice_credentials.i"
 	@echo "... src/ice/ice_credentials.s"
 	@echo "... src/ice/ice_def.o"
 	@echo "... src/ice/ice_def.i"
 	@echo "... src/ice/ice_def.s"
+	@echo "... src/ice/ice_transport_channel.o"
+	@echo "... src/ice/ice_transport_channel.i"
+	@echo "... src/ice/ice_transport_channel.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -618,6 +705,9 @@ help:
 	@echo "... src/pc/session_description.o"
 	@echo "... src/pc/session_description.i"
 	@echo "... src/pc/session_description.s"
+	@echo "... src/pc/transport_controller.o"
+	@echo "... src/pc/transport_controller.i"
+	@echo "... src/pc/transport_controller.s"
 	@echo "... src/server/rtc_server.o"
 	@echo "... src/server/rtc_server.i"
 	@echo "... src/server/rtc_server.s"

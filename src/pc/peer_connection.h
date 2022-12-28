@@ -8,6 +8,7 @@
 
 #include "base/event_loop.h"
 #include "pc/session_description.h"
+#include "pc/transport_controller.h"
 #include "rtc_base/rtc_certificate.h"
 
 #include <memory>
@@ -35,6 +36,7 @@ class PeerConnection {
     EventLoop* _el;
     std::unique_ptr<SessionDescription> _local_desc;
     rtc::RTCCertificate* _certificate = nullptr;
+    std::unique_ptr<TransportController> _transport_controller;
 };
 } // namespace xrtc
 

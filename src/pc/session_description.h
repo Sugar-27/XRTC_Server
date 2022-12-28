@@ -96,6 +96,9 @@ class SessionDescription {
     bool add_transport_info(const std::string& mid, const IceParameters& ice_param, rtc::RTCCertificate* certificate);
     std::shared_ptr<TransportDescription> get_transport_info(const std::string& mid);
 
+    bool is_bundle(const std::string& mid);
+    std::string get_first_bundle_mid();
+
   private:
     SdpType _sdp_type;
     std::vector<std::shared_ptr<MediaContentDescription>> _contents;
