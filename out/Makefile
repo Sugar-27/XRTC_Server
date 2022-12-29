@@ -258,6 +258,33 @@ src/base/socket.cpp.s:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/base/socket.cpp.s
 .PHONY : src/base/socket.cpp.s
 
+src/ice/candidate.o: src/ice/candidate.cpp.o
+
+.PHONY : src/ice/candidate.o
+
+# target to build an object file
+src/ice/candidate.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/candidate.cpp.o
+.PHONY : src/ice/candidate.cpp.o
+
+src/ice/candidate.i: src/ice/candidate.cpp.i
+
+.PHONY : src/ice/candidate.i
+
+# target to preprocess a source file
+src/ice/candidate.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/candidate.cpp.i
+.PHONY : src/ice/candidate.cpp.i
+
+src/ice/candidate.s: src/ice/candidate.cpp.s
+
+.PHONY : src/ice/candidate.s
+
+# target to generate assembly for a file
+src/ice/candidate.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/candidate.cpp.s
+.PHONY : src/ice/candidate.cpp.s
+
 src/ice/ice_agent.o: src/ice/ice_agent.cpp.o
 
 .PHONY : src/ice/ice_agent.o
@@ -392,6 +419,33 @@ src/ice/port_allocator.s: src/ice/port_allocator.cpp.s
 src/ice/port_allocator.cpp.s:
 	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/port_allocator.cpp.s
 .PHONY : src/ice/port_allocator.cpp.s
+
+src/ice/udp_port.o: src/ice/udp_port.cpp.o
+
+.PHONY : src/ice/udp_port.o
+
+# target to build an object file
+src/ice/udp_port.cpp.o:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/udp_port.cpp.o
+.PHONY : src/ice/udp_port.cpp.o
+
+src/ice/udp_port.i: src/ice/udp_port.cpp.i
+
+.PHONY : src/ice/udp_port.i
+
+# target to preprocess a source file
+src/ice/udp_port.cpp.i:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/udp_port.cpp.i
+.PHONY : src/ice/udp_port.cpp.i
+
+src/ice/udp_port.s: src/ice/udp_port.cpp.s
+
+.PHONY : src/ice/udp_port.s
+
+# target to generate assembly for a file
+src/ice/udp_port.cpp.s:
+	$(MAKE) -f CMakeFiles/xrtcserver.dir/build.make CMakeFiles/xrtcserver.dir/src/ice/udp_port.cpp.s
+.PHONY : src/ice/udp_port.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -741,6 +795,9 @@ help:
 	@echo "... src/base/socket.o"
 	@echo "... src/base/socket.i"
 	@echo "... src/base/socket.s"
+	@echo "... src/ice/candidate.o"
+	@echo "... src/ice/candidate.i"
+	@echo "... src/ice/candidate.s"
 	@echo "... src/ice/ice_agent.o"
 	@echo "... src/ice/ice_agent.i"
 	@echo "... src/ice/ice_agent.s"
@@ -756,6 +813,9 @@ help:
 	@echo "... src/ice/port_allocator.o"
 	@echo "... src/ice/port_allocator.i"
 	@echo "... src/ice/port_allocator.s"
+	@echo "... src/ice/udp_port.o"
+	@echo "... src/ice/udp_port.i"
+	@echo "... src/ice/udp_port.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

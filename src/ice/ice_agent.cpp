@@ -8,6 +8,7 @@
 #include "base/event_loop.h"
 #include "ice/ice_transport_channel.h"
 #include "ice/port_allocator.h"
+#include "rtc_base/logging.h"
 
 #include <algorithm>
 namespace xrtc {
@@ -33,6 +34,15 @@ IceTransportChannel* IceAgent::get_channel(const std::string& transport_name, Ic
 void IceAgent::gathering_candidate() {
     for (auto channel : _channels) {
         channel->gathering_candidate();
+    }
+}
+
+void IceAgent::set_ice_params(const std::string& transport_name,
+                              IceCandidateComponent component,
+                              const IceParameters& ice_params) {
+    auto channel = get_channel(transport_name, component);
+    if (channel) {
+        channel->set_ice_params(ice_params);
     }
 }
 

@@ -141,17 +141,48 @@ CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o
  ../third_part/include/absl/types/optional.h
  ../third_part/include/absl/utility/utility.h
  /home/sugar/project/cpp/xrtcserver/src/base/socket.cpp
+CMakeFiles/xrtcserver.dir/src/ice/candidate.cpp.o
+ /home/sugar/project/cpp/xrtcserver/src/ice/candidate.cpp
 CMakeFiles/xrtcserver.dir/src/ice/ice_agent.cpp.o
+ ../../rtcbase/src/api/array_view.h
  ../../rtcbase/src/rtc_base/byte_order.h
+ ../../rtcbase/src/rtc_base/checks.h
+ ../../rtcbase/src/rtc_base/constructor_magic.h
  ../../rtcbase/src/rtc_base/ip_address.h
+ ../../rtcbase/src/rtc_base/logging.h
+ ../../rtcbase/src/rtc_base/numerics/safe_compare.h
+ ../../rtcbase/src/rtc_base/string_encode.h
+ ../../rtcbase/src/rtc_base/string_to_number.h
+ ../../rtcbase/src/rtc_base/strings/string_builder.h
  ../../rtcbase/src/rtc_base/system/arch.h
+ ../../rtcbase/src/rtc_base/system/inline.h
  ../../rtcbase/src/rtc_base/system/rtc_export.h
+ ../../rtcbase/src/rtc_base/type_traits.h
  ../src/base/event_loop.h
  ../src/base/network.h
  ../src/ice/ice_agent.h
+ ../src/ice/ice_credentials.h
  ../src/ice/ice_def.h
  ../src/ice/ice_transport_channel.h
  ../src/ice/port_allocator.h
+ ../third_part/include/absl/base/attributes.h
+ ../third_part/include/absl/base/config.h
+ ../third_part/include/absl/base/internal/identity.h
+ ../third_part/include/absl/base/internal/inline_variable.h
+ ../third_part/include/absl/base/internal/invoke.h
+ ../third_part/include/absl/base/internal/throw_delegate.h
+ ../third_part/include/absl/base/macros.h
+ ../third_part/include/absl/base/optimization.h
+ ../third_part/include/absl/base/options.h
+ ../third_part/include/absl/base/policy_checks.h
+ ../third_part/include/absl/base/port.h
+ ../third_part/include/absl/memory/memory.h
+ ../third_part/include/absl/meta/type_traits.h
+ ../third_part/include/absl/strings/string_view.h
+ ../third_part/include/absl/types/bad_optional_access.h
+ ../third_part/include/absl/types/internal/optional.h
+ ../third_part/include/absl/types/optional.h
+ ../third_part/include/absl/utility/utility.h
  /home/sugar/project/cpp/xrtcserver/src/ice/ice_agent.cpp
 CMakeFiles/xrtcserver.dir/src/ice/ice_credentials.cpp.o
  ../../rtcbase/src/rtc_base/helpers.h
@@ -179,9 +210,12 @@ CMakeFiles/xrtcserver.dir/src/ice/ice_transport_channel.cpp.o
  ../../rtcbase/src/rtc_base/type_traits.h
  ../src/base/event_loop.h
  ../src/base/network.h
+ ../src/ice/candidate.h
+ ../src/ice/ice_credentials.h
  ../src/ice/ice_def.h
  ../src/ice/ice_transport_channel.h
  ../src/ice/port_allocator.h
+ ../src/ice/udp_port.h
  ../third_part/include/absl/base/attributes.h
  ../third_part/include/absl/base/config.h
  ../third_part/include/absl/base/internal/identity.h
@@ -209,6 +243,18 @@ CMakeFiles/xrtcserver.dir/src/ice/port_allocator.cpp.o
  ../src/base/network.h
  ../src/ice/port_allocator.h
  /home/sugar/project/cpp/xrtcserver/src/ice/port_allocator.cpp
+CMakeFiles/xrtcserver.dir/src/ice/udp_port.cpp.o
+ ../../rtcbase/src/rtc_base/byte_order.h
+ ../../rtcbase/src/rtc_base/ip_address.h
+ ../../rtcbase/src/rtc_base/system/arch.h
+ ../../rtcbase/src/rtc_base/system/rtc_export.h
+ ../src/base/event_loop.h
+ ../src/base/network.h
+ ../src/ice/candidate.h
+ ../src/ice/ice_credentials.h
+ ../src/ice/ice_def.h
+ ../src/ice/udp_port.h
+ /home/sugar/project/cpp/xrtcserver/src/ice/udp_port.cpp
 CMakeFiles/xrtcserver.dir/src/main.cpp.o
  ../../rtcbase/src/api/array_view.h
  ../../rtcbase/src/api/ref_counted_base.h
