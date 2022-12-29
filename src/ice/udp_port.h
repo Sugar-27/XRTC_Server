@@ -14,6 +14,7 @@
 #include "rtc_base/socket_address.h"
 
 #include <string>
+#include <vector>
 namespace xrtc {
 class UDPPort {
   public:
@@ -32,6 +33,7 @@ class UDPPort {
     IceParameters _ice_params;
     int _socket = -1;
     rtc::SocketAddress _local_addr;
+    std::vector<Candidate> _candidates;
 };
 } // namespace xrtc
 

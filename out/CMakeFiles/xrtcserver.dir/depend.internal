@@ -142,6 +142,13 @@ CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o
  ../third_part/include/absl/utility/utility.h
  /home/sugar/project/cpp/xrtcserver/src/base/socket.cpp
 CMakeFiles/xrtcserver.dir/src/ice/candidate.cpp.o
+ ../../rtcbase/src/rtc_base/byte_order.h
+ ../../rtcbase/src/rtc_base/ip_address.h
+ ../../rtcbase/src/rtc_base/socket_address.h
+ ../../rtcbase/src/rtc_base/system/arch.h
+ ../../rtcbase/src/rtc_base/system/rtc_export.h
+ ../src/ice/candidate.h
+ ../src/ice/ice_def.h
  /home/sugar/project/cpp/xrtcserver/src/ice/candidate.cpp
 CMakeFiles/xrtcserver.dir/src/ice/ice_agent.cpp.o
  ../../rtcbase/src/api/array_view.h
@@ -249,6 +256,7 @@ CMakeFiles/xrtcserver.dir/src/ice/udp_port.cpp.o
  ../../rtcbase/src/rtc_base/byte_order.h
  ../../rtcbase/src/rtc_base/checks.h
  ../../rtcbase/src/rtc_base/constructor_magic.h
+ ../../rtcbase/src/rtc_base/crc32.h
  ../../rtcbase/src/rtc_base/ip_address.h
  ../../rtcbase/src/rtc_base/logging.h
  ../../rtcbase/src/rtc_base/numerics/safe_compare.h

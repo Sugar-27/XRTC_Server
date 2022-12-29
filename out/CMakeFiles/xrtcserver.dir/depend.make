@@ -141,6 +141,13 @@ CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/type
 CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../third_part/include/absl/utility/utility.h
 CMakeFiles/xrtcserver.dir/src/base/socket.cpp.o: ../src/base/socket.cpp
 
+CMakeFiles/xrtcserver.dir/src/ice/candidate.cpp.o: ../../rtcbase/src/rtc_base/byte_order.h
+CMakeFiles/xrtcserver.dir/src/ice/candidate.cpp.o: ../../rtcbase/src/rtc_base/ip_address.h
+CMakeFiles/xrtcserver.dir/src/ice/candidate.cpp.o: ../../rtcbase/src/rtc_base/socket_address.h
+CMakeFiles/xrtcserver.dir/src/ice/candidate.cpp.o: ../../rtcbase/src/rtc_base/system/arch.h
+CMakeFiles/xrtcserver.dir/src/ice/candidate.cpp.o: ../../rtcbase/src/rtc_base/system/rtc_export.h
+CMakeFiles/xrtcserver.dir/src/ice/candidate.cpp.o: ../src/ice/candidate.h
+CMakeFiles/xrtcserver.dir/src/ice/candidate.cpp.o: ../src/ice/ice_def.h
 CMakeFiles/xrtcserver.dir/src/ice/candidate.cpp.o: ../src/ice/candidate.cpp
 
 CMakeFiles/xrtcserver.dir/src/ice/ice_agent.cpp.o: ../../rtcbase/src/api/array_view.h
@@ -248,6 +255,7 @@ CMakeFiles/xrtcserver.dir/src/ice/udp_port.cpp.o: ../../rtcbase/src/api/array_vi
 CMakeFiles/xrtcserver.dir/src/ice/udp_port.cpp.o: ../../rtcbase/src/rtc_base/byte_order.h
 CMakeFiles/xrtcserver.dir/src/ice/udp_port.cpp.o: ../../rtcbase/src/rtc_base/checks.h
 CMakeFiles/xrtcserver.dir/src/ice/udp_port.cpp.o: ../../rtcbase/src/rtc_base/constructor_magic.h
+CMakeFiles/xrtcserver.dir/src/ice/udp_port.cpp.o: ../../rtcbase/src/rtc_base/crc32.h
 CMakeFiles/xrtcserver.dir/src/ice/udp_port.cpp.o: ../../rtcbase/src/rtc_base/ip_address.h
 CMakeFiles/xrtcserver.dir/src/ice/udp_port.cpp.o: ../../rtcbase/src/rtc_base/logging.h
 CMakeFiles/xrtcserver.dir/src/ice/udp_port.cpp.o: ../../rtcbase/src/rtc_base/numerics/safe_compare.h
