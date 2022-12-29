@@ -6,13 +6,18 @@
 
 #include "stream/rtc_stream_manager.h"
 
+#include "base/conf.h"
 #include "base/event_loop.h"
 #include "ice/port_allocator.h"
 #include "rtc_base/rtc_certificate.h"
 #include "stream/push_stream.h"
 #include <memory>
+
+extern xrtc::GeneralConf* g_conf;
 namespace xrtc {
-RtcStreamManager::RtcStreamManager(EventLoop* el) : _el(el), _allocator(std::make_unique<PortAllocator>()) {}
+RtcStreamManager::RtcStreamManager(EventLoop* el) : _el(el), _allocator(std::make_unique<PortAllocator>()) {
+    _allocator->set_port_range(g_conf->ice_min_port, g_conf->ice_max_port);
+}
 
 RtcStreamManager::~RtcStreamManager() {}
 
